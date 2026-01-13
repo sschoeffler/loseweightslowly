@@ -32,5 +32,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <!-- Chat Widget -->
+        @include('components.chat-widget')
     </body>
 </html>
