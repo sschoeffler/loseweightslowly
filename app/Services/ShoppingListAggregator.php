@@ -46,6 +46,16 @@ class ShoppingListAggregator
 
     public function formatQuantity(float $quantity, string $unit): string
     {
+        // Convert oz to lb for large quantities
+        if ($unit === 'oz' && $quantity >= 16) {
+            $pounds = floor($quantity / 16);
+            $remainingOz = $quantity % 16;
+            if ($remainingOz == 0) {
+                return $pounds . ' lb';
+            }
+            return $pounds . ' lb ' . round($remainingOz) . ' oz';
+        }
+
         // Convert to readable fractions
         $fractions = [
             0.125 => '1/8',
@@ -77,9 +87,19 @@ class ShoppingListAggregator
             $formatted = number_format($quantity, 1);
         }
 
-        // Pluralize unit if quantity > 1
-        if ($quantity > 1 && in_array($unit, ['cup', 'slice'])) {
-            $unit .= 's';
+        // Pluralize units if quantity > 1
+        $pluralUnits = [
+            'cup' => 'cups',
+            'slice' => 'slices',
+            'stalk' => 'stalks',
+            'clove' => 'cloves',
+            'head' => 'heads',
+            'bunch' => 'bunches',
+            'pint' => 'pints',
+        ];
+
+        if ($quantity > 1 && isset($pluralUnits[$unit])) {
+            $unit = $pluralUnits[$unit];
         }
 
         return $formatted . ' ' . $unit;
