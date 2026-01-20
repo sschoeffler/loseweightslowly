@@ -77,6 +77,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Baked Cod with Tomatoes and Olives', 'dinner',
             'Bake cod with cherry tomatoes, olives, capers, and fresh herbs. Serve with a side of farro.', 25,
             ['Cod' => 6, 'Cherry tomatoes' => 1, 'Olives' => 0.25, 'Capers' => 1, 'Fresh basil' => 1, 'Olive oil' => 2, 'Farro' => 1]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Shakshuka', 'breakfast',
+            'Poach eggs in spiced tomato sauce with bell peppers and onions. Serve with crusty bread.', 25,
+            ['Eggs' => 2, 'Diced tomatoes (canned)' => 1, 'Bell pepper' => 0.5, 'Onion' => 0.5, 'Garlic' => 2, 'Cumin' => 0.5, 'Paprika' => 0.5, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Mediterranean Breakfast Plate', 'breakfast',
+            'Arrange sliced tomatoes, cucumber, olives, feta, and a drizzle of olive oil. Serve with pita.', 10,
+            ['Tomatoes' => 1, 'Cucumber' => 0.5, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Olive oil' => 1, 'Whole wheat bread' => 2]);
+
+        $this->createRecipe($diet, 'Labneh with Za\'atar', 'breakfast',
+            'Spread thick Greek yogurt on a plate, drizzle with olive oil, and sprinkle with herbs.', 5,
+            ['Greek yogurt' => 1, 'Olive oil' => 2, 'Dried oregano' => 0.5, 'Sesame seeds' => 1]);
+
+        $this->createRecipe($diet, 'Fig and Ricotta Toast', 'breakfast',
+            'Toast whole grain bread, spread with ricotta, and top with honey and walnuts.', 10,
+            ['Whole wheat bread' => 2, 'Ricotta cheese' => 0.5, 'Honey' => 1, 'Walnuts' => 0.25]);
+
+        $this->createRecipe($diet, 'Spinach and Feta Frittata', 'breakfast',
+            'Bake eggs with spinach, sun-dried tomatoes, and crumbled feta until golden.', 25,
+            ['Eggs' => 3, 'Spinach' => 3, 'Sun-dried tomatoes' => 0.25, 'Feta cheese' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Tahini Date Oatmeal', 'breakfast',
+            'Cook oats and stir in tahini and chopped dates. Top with almonds and cinnamon.', 10,
+            ['Oats' => 0.5, 'Tahini' => 1, 'Almonds' => 0.25, 'Cinnamon' => 0.5, 'Milk' => 1]);
+
+        $this->createRecipe($diet, 'Halloumi and Tomato Breakfast', 'breakfast',
+            'Pan-fry halloumi slices until golden. Serve with fresh tomatoes and basil.', 15,
+            ['Mozzarella cheese' => 0.5, 'Tomatoes' => 1, 'Fresh basil' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Greek Omelet', 'breakfast',
+            'Fill omelet with olives, feta, and sun-dried tomatoes. Serve with whole grain toast.', 15,
+            ['Eggs' => 3, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Sun-dried tomatoes' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Honey Walnut Greek Yogurt Bowl', 'breakfast',
+            'Top thick Greek yogurt with honey, walnuts, and fresh mint.', 5,
+            ['Greek yogurt' => 1, 'Honey' => 1, 'Walnuts' => 0.25, 'Fresh mint' => 1]);
+
+        $this->createRecipe($diet, 'Olive Oil Fried Eggs', 'breakfast',
+            'Fry eggs in generous olive oil until crispy. Serve with crusty bread and za\'atar.', 10,
+            ['Eggs' => 2, 'Olive oil' => 2, 'Whole wheat bread' => 2, 'Sea salt' => 0.25]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'Falafel Salad Bowl', 'lunch',
+            'Serve baked falafel over mixed greens with cucumber, tomatoes, and tahini dressing.', 30,
+            ['Chickpeas' => 1, 'Mixed greens' => 3, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Tahini' => 2, 'Lemon' => 0.5, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Mediterranean Quinoa Salad', 'lunch',
+            'Toss quinoa with cucumber, tomatoes, red onion, olives, and feta with lemon dressing.', 20,
+            ['Quinoa' => 1, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Red onion' => 0.25, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Lemon' => 0.5, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Chicken Pita Sandwich', 'lunch',
+            'Stuff whole wheat pita with grilled chicken, lettuce, tomatoes, and tzatziki sauce.', 20,
+            ['Chicken breast' => 6, 'Whole wheat bread' => 2, 'Romaine lettuce' => 0.25, 'Tomatoes' => 1, 'Greek yogurt' => 0.25, 'Cucumber' => 0.25]);
+
+        $this->createRecipe($diet, 'White Bean and Tuna Salad', 'lunch',
+            'Mix white beans with tuna, red onion, parsley, and lemon olive oil dressing.', 15,
+            ['White beans' => 1, 'Tuna' => 5, 'Red onion' => 0.25, 'Fresh parsley' => 1, 'Lemon' => 0.5, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Grilled Vegetable Panini', 'lunch',
+            'Layer grilled zucchini, eggplant, and peppers on crusty bread with feta and pesto.', 25,
+            ['Zucchini' => 1, 'Eggplant' => 0.5, 'Bell pepper' => 1, 'Feta cheese' => 0.25, 'Whole wheat bread' => 2, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Shrimp and Orzo Salad', 'lunch',
+            'Toss cooked orzo with grilled shrimp, cucumber, dill, and lemon vinaigrette.', 25,
+            ['Shrimp' => 6, 'Whole wheat pasta' => 1, 'Cucumber' => 0.5, 'Fresh dill' => 1, 'Lemon' => 0.5, 'Olive oil' => 2, 'Feta cheese' => 0.25]);
+
+        $this->createRecipe($diet, 'Stuffed Grape Leaves Plate', 'lunch',
+            'Serve stuffed grape leaves with hummus, tabbouleh, and pita bread.', 15,
+            ['Brown rice' => 1, 'Fresh parsley' => 1, 'Fresh mint' => 1, 'Lemon' => 0.5, 'Olive oil' => 2, 'Hummus' => 0.5]);
+
+        $this->createRecipe($diet, 'Mediterranean Chicken Wrap', 'lunch',
+            'Wrap grilled chicken with hummus, mixed greens, cucumber, and roasted red peppers.', 20,
+            ['Chicken breast' => 6, 'Whole wheat bread' => 2, 'Hummus' => 0.5, 'Mixed greens' => 2, 'Cucumber' => 0.5, 'Bell pepper' => 0.5]);
+
+        $this->createRecipe($diet, 'Sardine and White Bean Toast', 'lunch',
+            'Top crusty bread with mashed white beans, sardines, lemon, and fresh herbs.', 15,
+            ['Tuna' => 5, 'White beans' => 0.5, 'Whole wheat bread' => 2, 'Lemon' => 0.5, 'Fresh parsley' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Greek Mezze Plate', 'lunch',
+            'Arrange hummus, tzatziki, olives, feta, cucumber, and pita for a shared lunch.', 15,
+            ['Hummus' => 0.5, 'Greek yogurt' => 0.5, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Cucumber' => 0.5, 'Whole wheat bread' => 2]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Lamb Kofta with Tzatziki', 'dinner',
+            'Grill spiced lamb kofta and serve with tzatziki, pita, and Greek salad.', 30,
+            ['Ground beef' => 6, 'Greek yogurt' => 0.5, 'Cucumber' => 0.5, 'Garlic' => 2, 'Cumin' => 0.5, 'Fresh mint' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Mediterranean Baked Fish', 'dinner',
+            'Bake white fish with tomatoes, capers, olives, and fresh herbs. Serve with couscous.', 30,
+            ['Cod' => 6, 'Cherry tomatoes' => 1, 'Capers' => 1, 'Olives' => 0.25, 'Fresh parsley' => 1, 'Olive oil' => 2, 'Farro' => 1]);
+
+        $this->createRecipe($diet, 'Chicken with Artichokes and Olives', 'dinner',
+            'Braise chicken thighs with artichoke hearts, olives, and white wine.', 40,
+            ['Chicken breast' => 8, 'Olives' => 0.25, 'Garlic' => 3, 'Chicken broth' => 1, 'Lemon' => 0.5, 'Fresh rosemary' => 1, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Stuffed Zucchini Boats', 'dinner',
+            'Fill zucchini halves with quinoa, tomatoes, feta, and herbs. Bake until tender.', 35,
+            ['Zucchini' => 2, 'Quinoa' => 1, 'Cherry tomatoes' => 0.5, 'Feta cheese' => 0.25, 'Fresh basil' => 1, 'Olive oil' => 1, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Grilled Octopus with Lemon', 'dinner',
+            'Grill tender octopus with olive oil and lemon. Serve with roasted potatoes and greens.', 45,
+            ['Shrimp' => 8, 'Olive oil' => 3, 'Lemon' => 1, 'Garlic' => 3, 'Fresh parsley' => 1, 'Quinoa' => 1]);
+
+        $this->createRecipe($diet, 'Moussaka', 'dinner',
+            'Layer eggplant with spiced meat sauce and top with béchamel. Bake until golden.', 60,
+            ['Eggplant' => 1, 'Ground beef' => 6, 'Diced tomatoes (canned)' => 1, 'Onion' => 0.5, 'Garlic' => 2, 'Cinnamon' => 0.5, 'Milk' => 1, 'Butter' => 2]);
+
+        $this->createRecipe($diet, 'Lemon Herb Roasted Chicken', 'dinner',
+            'Roast whole chicken with lemon, garlic, and Mediterranean herbs. Serve with roasted vegetables.', 60,
+            ['Chicken breast' => 8, 'Lemon' => 1, 'Garlic' => 4, 'Fresh rosemary' => 1, 'Fresh thyme' => 1, 'Olive oil' => 2, 'Carrots' => 2, 'Onion' => 1]);
+
+        $this->createRecipe($diet, 'Seafood Paella', 'dinner',
+            'Cook rice with saffron, shrimp, and vegetables in a traditional paella style.', 45,
+            ['Brown rice' => 1, 'Shrimp' => 6, 'Bell pepper' => 1, 'Onion' => 0.5, 'Garlic' => 3, 'Chicken broth' => 2, 'Turmeric' => 0.5, 'Fresh parsley' => 1]);
+
+        $this->createRecipe($diet, 'Greek-Style Roasted Vegetables', 'dinner',
+            'Roast eggplant, zucchini, tomatoes with feta and herbs. Serve with warm pita.', 40,
+            ['Eggplant' => 0.5, 'Zucchini' => 1, 'Cherry tomatoes' => 1, 'Feta cheese' => 0.5, 'Olive oil' => 2, 'Dried oregano' => 0.5, 'Whole wheat bread' => 2]);
+
+        $this->createRecipe($diet, 'Swordfish Steaks with Herbs', 'dinner',
+            'Grill swordfish steaks with olive oil, oregano, and lemon. Serve with quinoa salad.', 25,
+            ['Salmon fillet' => 6, 'Olive oil' => 2, 'Lemon' => 1, 'Dried oregano' => 0.5, 'Quinoa' => 1, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5]);
     }
 
     private function seedVegetarian(): void
@@ -133,6 +256,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Lentil Curry', 'dinner',
             'Simmer lentils in coconut milk with curry spices, tomatoes, and spinach. Serve over rice.', 35,
             ['Lentils' => 1, 'Coconut milk' => 1, 'Diced tomatoes (canned)' => 1, 'Spinach' => 3, 'Turmeric' => 0.5, 'Cumin' => 0.5, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Banana Nut Oatmeal', 'breakfast',
+            'Cook oats with sliced banana, walnuts, and a drizzle of maple syrup.', 10,
+            ['Oats' => 0.5, 'Banana' => 1, 'Walnuts' => 0.25, 'Maple syrup' => 1, 'Milk' => 1]);
+
+        $this->createRecipe($diet, 'Spinach and Mushroom Frittata', 'breakfast',
+            'Bake eggs with spinach, mushrooms, and goat cheese until set.', 25,
+            ['Eggs' => 3, 'Spinach' => 2, 'Mushrooms' => 4, 'Goat cheese' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Peanut Butter Banana Toast', 'breakfast',
+            'Spread peanut butter on whole grain toast and top with sliced banana and honey.', 5,
+            ['Whole wheat bread' => 2, 'Peanut butter' => 2, 'Banana' => 0.5, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Tropical Smoothie', 'breakfast',
+            'Blend mango, pineapple, banana, and coconut milk for a tropical start.', 5,
+            ['Banana' => 0.5, 'Coconut milk' => 1, 'Greek yogurt' => 0.5, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Cheese and Herb Scramble', 'breakfast',
+            'Scramble eggs with fresh herbs, chives, and melted cheddar cheese.', 10,
+            ['Eggs' => 2, 'Cheddar cheese' => 0.25, 'Fresh parsley' => 1, 'Butter' => 1]);
+
+        $this->createRecipe($diet, 'Overnight Oats with Berries', 'breakfast',
+            'Soak oats overnight in milk with chia seeds. Top with fresh berries.', 5,
+            ['Oats' => 0.5, 'Milk' => 1, 'Chia seeds' => 1, 'Blueberries' => 0.5, 'Strawberries' => 0.5]);
+
+        $this->createRecipe($diet, 'Ricotta Stuffed French Toast', 'breakfast',
+            'Make French toast stuffed with sweetened ricotta. Top with fresh berries.', 20,
+            ['Whole wheat bread' => 2, 'Ricotta cheese' => 0.5, 'Eggs' => 2, 'Milk' => 0.25, 'Blueberries' => 0.5, 'Maple syrup' => 1]);
+
+        $this->createRecipe($diet, 'Green Power Smoothie', 'breakfast',
+            'Blend spinach, banana, almond butter, and almond milk until smooth.', 5,
+            ['Spinach' => 2, 'Banana' => 1, 'Almond butter' => 1, 'Almond milk' => 1, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Huevos Rancheros', 'breakfast',
+            'Serve fried eggs over corn tortillas with black beans and salsa.', 20,
+            ['Eggs' => 2, 'Black beans' => 0.5, 'Diced tomatoes (canned)' => 0.5, 'Fresh cilantro' => 1, 'Lime' => 0.5, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Almond Butter Banana Wrap', 'breakfast',
+            'Spread almond butter on a whole wheat wrap, add sliced banana, and roll up.', 5,
+            ['Whole wheat bread' => 2, 'Almond butter' => 2, 'Banana' => 1, 'Honey' => 1]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'Mediterranean Veggie Wrap', 'lunch',
+            'Fill wrap with hummus, falafel, mixed greens, tomatoes, and tzatziki.', 20,
+            ['Whole wheat bread' => 2, 'Hummus' => 0.5, 'Chickpeas' => 0.5, 'Mixed greens' => 2, 'Tomatoes' => 1, 'Greek yogurt' => 0.25]);
+
+        $this->createRecipe($diet, 'Tomato Basil Soup with Grilled Cheese', 'lunch',
+            'Make creamy tomato soup and serve with a classic grilled cheese sandwich.', 30,
+            ['Diced tomatoes (canned)' => 1, 'Vegetable broth' => 1, 'Fresh basil' => 1, 'Whole wheat bread' => 2, 'Cheddar cheese' => 0.5, 'Butter' => 1]);
+
+        $this->createRecipe($diet, 'Greek Pasta Salad', 'lunch',
+            'Toss pasta with cucumber, tomatoes, olives, feta, and Greek dressing.', 20,
+            ['Whole wheat pasta' => 1, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Olive oil' => 2, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Spinach and Artichoke Quesadilla', 'lunch',
+            'Fill tortilla with spinach, artichokes, and melted cheese. Serve with salsa.', 15,
+            ['Whole wheat bread' => 2, 'Spinach' => 2, 'Mozzarella cheese' => 0.5, 'Cream cheese' => 2, 'Garlic' => 1]);
+
+        $this->createRecipe($diet, 'Asian Noodle Salad', 'lunch',
+            'Toss rice noodles with edamame, carrots, cabbage, and sesame ginger dressing.', 20,
+            ['Rice noodles' => 1, 'Carrots' => 2, 'Soy sauce' => 1, 'Ginger' => 0.5, 'Sesame seeds' => 1, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Loaded Sweet Potato', 'lunch',
+            'Bake sweet potato and top with black beans, cheese, sour cream, and green onions.', 45,
+            ['Sweet potato' => 1, 'Black beans' => 0.5, 'Cheddar cheese' => 0.25, 'Sour cream' => 2, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Minestrone Soup', 'lunch',
+            'Simmer vegetables, beans, and pasta in tomato broth with Italian herbs.', 40,
+            ['Diced tomatoes (canned)' => 1, 'White beans' => 0.5, 'Whole wheat pasta' => 0.5, 'Carrots' => 2, 'Celery' => 2, 'Vegetable broth' => 2, 'Italian seasoning' => 0.5]);
+
+        $this->createRecipe($diet, 'Avocado Black Bean Salad', 'lunch',
+            'Toss black beans with avocado, corn, tomatoes, and lime cilantro dressing.', 15,
+            ['Black beans' => 1, 'Avocado' => 0.5, 'Cherry tomatoes' => 0.5, 'Fresh cilantro' => 1, 'Lime' => 0.5, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Vegetable Fried Rice', 'lunch',
+            'Stir-fry rice with mixed vegetables, eggs, and soy sauce.', 20,
+            ['Brown rice' => 1, 'Eggs' => 2, 'Carrots' => 1, 'Bell pepper' => 0.5, 'Soy sauce' => 1, 'Garlic' => 2, 'Ginger' => 0.5]);
+
+        $this->createRecipe($diet, 'Chickpea Salad Sandwich', 'lunch',
+            'Mash chickpeas with mayo and spices. Serve on bread with lettuce and tomato.', 15,
+            ['Chickpeas' => 1, 'Greek yogurt' => 0.25, 'Dijon mustard' => 0.5, 'Whole wheat bread' => 2, 'Romaine lettuce' => 0.25, 'Tomatoes' => 1]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Vegetable Lasagna', 'dinner',
+            'Layer pasta with ricotta, spinach, mushrooms, and marinara. Bake until bubbly.', 60,
+            ['Whole wheat pasta' => 1, 'Ricotta cheese' => 1, 'Spinach' => 3, 'Mushrooms' => 4, 'Diced tomatoes (canned)' => 1, 'Mozzarella cheese' => 0.5, 'Parmesan cheese' => 2]);
+
+        $this->createRecipe($diet, 'Thai Coconut Curry', 'dinner',
+            'Simmer tofu and vegetables in coconut curry sauce. Serve over jasmine rice.', 30,
+            ['Tofu' => 8, 'Coconut milk' => 1, 'Bell pepper' => 1, 'Broccoli' => 0.5, 'Brown rice' => 1, 'Ginger' => 0.5, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Portobello Mushroom Burgers', 'dinner',
+            'Grill marinated portobello caps and serve on buns with all the fixings.', 25,
+            ['Mushrooms' => 4, 'Whole wheat bread' => 2, 'Avocado' => 0.5, 'Tomatoes' => 1, 'Mixed greens' => 1, 'Balsamic vinegar' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Spinach and Ricotta Stuffed Shells', 'dinner',
+            'Fill jumbo pasta shells with spinach and ricotta. Bake in marinara sauce.', 45,
+            ['Whole wheat pasta' => 1, 'Ricotta cheese' => 1, 'Spinach' => 3, 'Diced tomatoes (canned)' => 1, 'Mozzarella cheese' => 0.5, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Vegetable Pad Thai', 'dinner',
+            'Stir-fry rice noodles with tofu, vegetables, eggs, and pad thai sauce.', 30,
+            ['Rice noodles' => 1, 'Tofu' => 6, 'Eggs' => 2, 'Bean sprouts' => 1, 'Peanut butter' => 1, 'Soy sauce' => 1, 'Lime' => 0.5]);
+
+        $this->createRecipe($diet, 'Black Bean Enchiladas', 'dinner',
+            'Roll black beans and cheese in tortillas. Top with enchilada sauce and bake.', 40,
+            ['Black beans' => 1, 'Cheddar cheese' => 0.5, 'Whole wheat bread' => 2, 'Diced tomatoes (canned)' => 1, 'Cumin' => 0.5, 'Sour cream' => 2, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Cauliflower Tikka Masala', 'dinner',
+            'Roast cauliflower and simmer in creamy tikka masala sauce. Serve with rice.', 40,
+            ['Cauliflower' => 0.5, 'Diced tomatoes (canned)' => 1, 'Coconut milk' => 0.5, 'Turmeric' => 0.5, 'Cumin' => 0.5, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Baked Ziti', 'dinner',
+            'Mix pasta with ricotta and marinara. Top with mozzarella and bake.', 45,
+            ['Whole wheat pasta' => 1, 'Ricotta cheese' => 0.5, 'Diced tomatoes (canned)' => 1, 'Mozzarella cheese' => 0.5, 'Parmesan cheese' => 2, 'Italian seasoning' => 0.5]);
+
+        $this->createRecipe($diet, 'Vegetable Biryani', 'dinner',
+            'Layer spiced rice with mixed vegetables and cook until fragrant.', 45,
+            ['Brown rice' => 1, 'Cauliflower' => 0.25, 'Carrots' => 2, 'Turmeric' => 0.5, 'Cumin' => 0.5, 'Cinnamon' => 0.25, 'Greek yogurt' => 0.25, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Cheese Ravioli with Sage Butter', 'dinner',
+            'Cook cheese ravioli and toss with brown butter and crispy sage leaves.', 20,
+            ['Whole wheat pasta' => 1, 'Ricotta cheese' => 0.5, 'Butter' => 3, 'Parmesan cheese' => 2, 'Garlic' => 1]);
     }
 
     private function seedKeto(): void
@@ -189,6 +435,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Pork Chops with Cauliflower Mash', 'dinner',
             'Pan-sear pork chops. Make creamy cauliflower mash with butter and cream.', 30,
             ['Pork tenderloin' => 6, 'Cauliflower' => 0.5, 'Butter' => 2, 'Heavy cream' => 0.25, 'Garlic' => 1, 'Fresh thyme' => 1]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Cheese Omelet', 'breakfast',
+            'Make a fluffy omelet filled with cheddar and topped with sour cream.', 10,
+            ['Eggs' => 3, 'Cheddar cheese' => 0.5, 'Butter' => 1, 'Sour cream' => 2]);
+
+        $this->createRecipe($diet, 'Avocado Bacon Boats', 'breakfast',
+            'Fill avocado halves with crumbled bacon and a drizzle of ranch.', 15,
+            ['Avocado' => 1, 'Bacon' => 3, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Sausage and Cheese Casserole', 'breakfast',
+            'Bake sausage with eggs, cheese, and cream until puffed and golden.', 35,
+            ['Pork tenderloin' => 4, 'Eggs' => 4, 'Cheddar cheese' => 0.5, 'Heavy cream' => 0.25]);
+
+        $this->createRecipe($diet, 'Ham and Cheese Roll-Ups', 'breakfast',
+            'Roll sliced ham around cream cheese and chives. Quick and portable.', 5,
+            ['Pork tenderloin' => 4, 'Cream cheese' => 2, 'Fresh parsley' => 1]);
+
+        $this->createRecipe($diet, 'Keto Coffee', 'breakfast',
+            'Blend hot coffee with butter and coconut oil for a creamy keto drink. Serve with eggs.', 10,
+            ['Butter' => 2, 'Coconut milk' => 0.25, 'Eggs' => 2]);
+
+        $this->createRecipe($diet, 'Zucchini Fritters', 'breakfast',
+            'Mix shredded zucchini with eggs and cheese. Pan-fry until golden.', 20,
+            ['Zucchini' => 1, 'Eggs' => 2, 'Parmesan cheese' => 2, 'Almond flour' => 0.25, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Caprese Egg Cups', 'breakfast',
+            'Bake eggs with mozzarella, tomatoes, and fresh basil in muffin tins.', 25,
+            ['Eggs' => 3, 'Mozzarella cheese' => 0.5, 'Cherry tomatoes' => 0.5, 'Fresh basil' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Almond Flour Waffles', 'breakfast',
+            'Make low-carb waffles with almond flour, eggs, and cream cheese.', 20,
+            ['Almond flour' => 0.5, 'Eggs' => 2, 'Cream cheese' => 2, 'Butter' => 2]);
+
+        $this->createRecipe($diet, 'Prosciutto Wrapped Asparagus', 'breakfast',
+            'Wrap asparagus spears in prosciutto and bake until crispy. Serve with eggs.', 20,
+            ['Asparagus' => 0.5, 'Bacon' => 3, 'Eggs' => 2, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Spinach Cream Cheese Eggs', 'breakfast',
+            'Scramble eggs with cream cheese and wilted spinach.', 10,
+            ['Eggs' => 3, 'Cream cheese' => 2, 'Spinach' => 2, 'Butter' => 1]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'BLT Lettuce Wrap', 'lunch',
+            'Wrap crispy bacon, tomatoes, and mayo in large lettuce leaves.', 15,
+            ['Bacon' => 4, 'Tomatoes' => 1, 'Romaine lettuce' => 0.5, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Egg Salad Stuffed Avocado', 'lunch',
+            'Fill avocado halves with creamy egg salad made with mayo and mustard.', 15,
+            ['Eggs' => 3, 'Avocado' => 1, 'Dijon mustard' => 0.5, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Antipasto Salad', 'lunch',
+            'Arrange salami, mozzarella, olives, and roasted peppers over greens.', 10,
+            ['Mixed greens' => 3, 'Pork tenderloin' => 4, 'Mozzarella cheese' => 0.5, 'Olives' => 0.25, 'Bell pepper' => 0.5, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Cauliflower Mac and Cheese', 'lunch',
+            'Bake cauliflower florets in creamy cheddar cheese sauce.', 30,
+            ['Cauliflower' => 0.5, 'Cheddar cheese' => 0.5, 'Heavy cream' => 0.5, 'Butter' => 2, 'Garlic' => 1]);
+
+        $this->createRecipe($diet, 'Greek Salad (No Pita)', 'lunch',
+            'Toss cucumber, tomatoes, olives, and feta with olive oil dressing.', 10,
+            ['Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Olives' => 0.25, 'Feta cheese' => 0.25, 'Olive oil' => 2, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Buffalo Chicken Salad', 'lunch',
+            'Toss grilled chicken with buffalo sauce over romaine with blue cheese.', 20,
+            ['Chicken breast' => 6, 'Romaine lettuce' => 0.5, 'Goat cheese' => 0.25, 'Celery' => 2, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Zucchini Noodle Salad', 'lunch',
+            'Spiralize zucchini and toss with pesto, sun-dried tomatoes, and parmesan.', 15,
+            ['Zucchini' => 2, 'Sun-dried tomatoes' => 0.25, 'Parmesan cheese' => 2, 'Olive oil' => 2, 'Fresh basil' => 1]);
+
+        $this->createRecipe($diet, 'Bacon Cheeseburger Bowl', 'lunch',
+            'Serve seasoned ground beef over lettuce with bacon, cheese, and pickles.', 20,
+            ['Ground beef' => 6, 'Bacon' => 2, 'Cheddar cheese' => 0.25, 'Romaine lettuce' => 0.5, 'Tomatoes' => 0.5]);
+
+        $this->createRecipe($diet, 'Shrimp Avocado Salad', 'lunch',
+            'Toss grilled shrimp with avocado, cucumber, and lime dressing.', 15,
+            ['Shrimp' => 6, 'Avocado' => 0.5, 'Cucumber' => 0.5, 'Lime' => 0.5, 'Olive oil' => 2, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Caprese Stack', 'lunch',
+            'Layer fresh mozzarella with tomatoes and basil. Drizzle with olive oil.', 5,
+            ['Mozzarella cheese' => 0.5, 'Tomatoes' => 2, 'Fresh basil' => 1, 'Olive oil' => 2, 'Balsamic vinegar' => 1]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Butter Baked Chicken Thighs', 'dinner',
+            'Roast chicken thighs in butter with garlic and herbs until crispy.', 40,
+            ['Chicken breast' => 8, 'Butter' => 3, 'Garlic' => 3, 'Fresh rosemary' => 1, 'Fresh thyme' => 1]);
+
+        $this->createRecipe($diet, 'Stuffed Pork Tenderloin', 'dinner',
+            'Stuff pork with spinach and cream cheese. Roast until golden.', 45,
+            ['Pork tenderloin' => 8, 'Spinach' => 2, 'Cream cheese' => 2, 'Garlic' => 2, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Garlic Butter Shrimp', 'dinner',
+            'Sauté shrimp in garlic butter with lemon and parsley. Serve with zoodles.', 15,
+            ['Shrimp' => 8, 'Butter' => 3, 'Garlic' => 4, 'Lemon' => 0.5, 'Fresh parsley' => 1, 'Zucchini' => 1]);
+
+        $this->createRecipe($diet, 'Keto Meatballs', 'dinner',
+            'Bake almond flour meatballs in marinara. Top with melted mozzarella.', 35,
+            ['Ground beef' => 6, 'Almond flour' => 0.25, 'Eggs' => 1, 'Diced tomatoes (canned)' => 0.5, 'Mozzarella cheese' => 0.5, 'Italian seasoning' => 0.5]);
+
+        $this->createRecipe($diet, 'Pan-Seared Duck Breast', 'dinner',
+            'Score and pan-sear duck breast. Serve with sautéed greens.', 30,
+            ['Chicken breast' => 6, 'Kale' => 0.5, 'Butter' => 2, 'Garlic' => 2, 'Fresh thyme' => 1, 'Sea salt' => 0.5]);
+
+        $this->createRecipe($diet, 'Cheesy Broccoli Casserole', 'dinner',
+            'Bake broccoli with cheddar cheese sauce, bacon, and sour cream.', 30,
+            ['Broccoli' => 0.5, 'Cheddar cheese' => 0.5, 'Bacon' => 3, 'Sour cream' => 0.5, 'Heavy cream' => 0.25]);
+
+        $this->createRecipe($diet, 'Lamb Chops with Herb Butter', 'dinner',
+            'Grill lamb chops and top with compound herb butter.', 25,
+            ['Ground beef' => 8, 'Butter' => 3, 'Fresh rosemary' => 1, 'Fresh mint' => 1, 'Garlic' => 2, 'Sea salt' => 0.5]);
+
+        $this->createRecipe($diet, 'Bacon-Wrapped Chicken', 'dinner',
+            'Wrap chicken breasts in bacon and bake until crispy. Serve with asparagus.', 35,
+            ['Chicken breast' => 6, 'Bacon' => 4, 'Asparagus' => 0.5, 'Olive oil' => 1, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Zucchini Lasagna', 'dinner',
+            'Layer zucchini slices with meat sauce and ricotta. Bake until bubbly.', 50,
+            ['Zucchini' => 2, 'Ground beef' => 6, 'Ricotta cheese' => 0.5, 'Mozzarella cheese' => 0.5, 'Diced tomatoes (canned)' => 0.5, 'Italian seasoning' => 0.5]);
+
+        $this->createRecipe($diet, 'Creamy Garlic Chicken', 'dinner',
+            'Pan-fry chicken in creamy garlic parmesan sauce. Serve with roasted broccoli.', 30,
+            ['Chicken breast' => 6, 'Heavy cream' => 0.5, 'Parmesan cheese' => 2, 'Garlic' => 3, 'Broccoli' => 0.5, 'Butter' => 2]);
     }
 
     private function seedDash(): void
@@ -245,6 +614,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Salmon with Quinoa and Greens', 'dinner',
             'Bake salmon with lemon. Serve over quinoa with sautéed kale and garlic.', 30,
             ['Salmon fillet' => 6, 'Quinoa' => 1, 'Kale' => 0.5, 'Garlic' => 2, 'Lemon' => 0.5, 'Olive oil' => 1]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Banana Oat Pancakes', 'breakfast',
+            'Blend oats with banana and eggs. Cook as pancakes and serve with fresh fruit.', 20,
+            ['Oats' => 0.5, 'Banana' => 1, 'Eggs' => 2, 'Milk' => 0.25, 'Blueberries' => 0.5]);
+
+        $this->createRecipe($diet, 'Spinach Egg Scramble', 'breakfast',
+            'Scramble eggs with fresh spinach and a sprinkle of low-fat cheese.', 10,
+            ['Eggs' => 2, 'Spinach' => 2, 'Mozzarella cheese' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Apple Cinnamon Oatmeal', 'breakfast',
+            'Cook oats with diced apples and cinnamon. Top with a few walnuts.', 15,
+            ['Oats' => 0.5, 'Milk' => 1, 'Cinnamon' => 0.5, 'Walnuts' => 0.25, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Cottage Cheese with Pineapple', 'breakfast',
+            'Top low-fat cottage cheese with fresh pineapple and a sprinkle of flax seeds.', 5,
+            ['Cottage cheese' => 1, 'Flax seeds' => 1, 'Honey' => 0.5]);
+
+        $this->createRecipe($diet, 'Veggie Breakfast Burrito', 'breakfast',
+            'Fill whole wheat tortilla with scrambled eggs, black beans, and salsa.', 15,
+            ['Whole wheat bread' => 2, 'Eggs' => 2, 'Black beans' => 0.25, 'Tomatoes' => 0.5, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Overnight Chia Pudding', 'breakfast',
+            'Soak chia seeds in low-fat milk overnight. Top with fresh berries.', 5,
+            ['Chia seeds' => 2, 'Milk' => 1, 'Strawberries' => 0.5, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Mushroom and Herb Omelet', 'breakfast',
+            'Make a fluffy omelet filled with sautéed mushrooms and fresh herbs.', 15,
+            ['Eggs' => 2, 'Mushrooms' => 4, 'Fresh parsley' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Mango Smoothie', 'breakfast',
+            'Blend frozen mango with Greek yogurt and a splash of orange juice.', 5,
+            ['Greek yogurt' => 1, 'Banana' => 0.5, 'Almond milk' => 0.5]);
+
+        $this->createRecipe($diet, 'Avocado Toast with Egg', 'breakfast',
+            'Top whole grain toast with mashed avocado and a poached egg.', 15,
+            ['Whole wheat bread' => 2, 'Avocado' => 0.5, 'Eggs' => 1, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Steel Cut Oats with Nuts', 'breakfast',
+            'Cook steel cut oats and top with mixed nuts and a drizzle of maple syrup.', 25,
+            ['Oats' => 0.5, 'Milk' => 1, 'Walnuts' => 0.25, 'Almonds' => 0.25, 'Maple syrup' => 1]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'Mediterranean Tuna Salad', 'lunch',
+            'Mix tuna with olive oil, lemon, and herbs. Serve over mixed greens.', 15,
+            ['Tuna' => 5, 'Mixed greens' => 3, 'Cherry tomatoes' => 0.5, 'Cucumber' => 0.5, 'Olive oil' => 1, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Turkey Avocado Sandwich', 'lunch',
+            'Layer sliced turkey with avocado, lettuce, and tomato on whole grain bread.', 10,
+            ['Ground turkey' => 4, 'Whole wheat bread' => 2, 'Avocado' => 0.5, 'Romaine lettuce' => 0.25, 'Tomatoes' => 1]);
+
+        $this->createRecipe($diet, 'Lentil Vegetable Soup', 'lunch',
+            'Simmer lentils with carrots, celery, and tomatoes in low-sodium broth.', 40,
+            ['Lentils' => 1, 'Carrots' => 2, 'Celery' => 2, 'Diced tomatoes (canned)' => 1, 'Vegetable broth' => 2, 'Fresh thyme' => 1]);
+
+        $this->createRecipe($diet, 'Grilled Chicken Wrap', 'lunch',
+            'Wrap grilled chicken with hummus, spinach, and roasted peppers.', 20,
+            ['Chicken breast' => 6, 'Whole wheat bread' => 2, 'Hummus' => 0.5, 'Spinach' => 2, 'Bell pepper' => 0.5]);
+
+        $this->createRecipe($diet, 'Spinach and Strawberry Salad', 'lunch',
+            'Toss spinach with strawberries, walnuts, and balsamic vinaigrette.', 10,
+            ['Spinach' => 4, 'Strawberries' => 0.5, 'Walnuts' => 0.25, 'Goat cheese' => 0.25, 'Balsamic vinegar' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Brown Rice Bowl', 'lunch',
+            'Top brown rice with black beans, grilled chicken, and fresh salsa.', 25,
+            ['Brown rice' => 1, 'Black beans' => 0.5, 'Chicken breast' => 4, 'Tomatoes' => 0.5, 'Fresh cilantro' => 1, 'Lime' => 0.5]);
+
+        $this->createRecipe($diet, 'White Bean Salad', 'lunch',
+            'Toss white beans with tomatoes, cucumber, and fresh herbs in olive oil.', 15,
+            ['White beans' => 1, 'Cherry tomatoes' => 0.5, 'Cucumber' => 0.5, 'Fresh parsley' => 1, 'Olive oil' => 1, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Vegetable Minestrone', 'lunch',
+            'Simmer vegetables and white beans in tomato broth with whole wheat pasta.', 40,
+            ['Diced tomatoes (canned)' => 1, 'White beans' => 0.5, 'Whole wheat pasta' => 0.5, 'Carrots' => 2, 'Celery' => 2, 'Vegetable broth' => 2]);
+
+        $this->createRecipe($diet, 'Salmon Salad', 'lunch',
+            'Flake baked salmon over mixed greens with cucumber and light dressing.', 20,
+            ['Salmon fillet' => 4, 'Mixed greens' => 3, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Olive oil' => 1, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Hummus Veggie Plate', 'lunch',
+            'Serve hummus with raw vegetables and whole wheat pita triangles.', 10,
+            ['Hummus' => 0.5, 'Carrots' => 2, 'Cucumber' => 0.5, 'Bell pepper' => 1, 'Whole wheat bread' => 2]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Lemon Garlic Tilapia', 'dinner',
+            'Bake tilapia with lemon, garlic, and herbs. Serve with steamed vegetables.', 25,
+            ['Cod' => 6, 'Lemon' => 0.5, 'Garlic' => 2, 'Fresh dill' => 1, 'Asparagus' => 0.5, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Chicken and Vegetable Stir-Fry', 'dinner',
+            'Stir-fry chicken with colorful vegetables in low-sodium soy sauce.', 25,
+            ['Chicken breast' => 6, 'Broccoli' => 0.5, 'Bell pepper' => 1, 'Carrots' => 1, 'Soy sauce' => 1, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Baked Cod with Vegetables', 'dinner',
+            'Bake cod with zucchini, tomatoes, and fresh herbs.', 25,
+            ['Cod' => 6, 'Zucchini' => 1, 'Cherry tomatoes' => 0.5, 'Fresh basil' => 1, 'Olive oil' => 1, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Turkey Vegetable Soup', 'dinner',
+            'Simmer lean ground turkey with vegetables in low-sodium broth.', 35,
+            ['Ground turkey' => 6, 'Carrots' => 2, 'Celery' => 2, 'Onion' => 0.5, 'Chicken broth' => 2, 'Fresh thyme' => 1]);
+
+        $this->createRecipe($diet, 'Grilled Chicken with Sweet Potato', 'dinner',
+            'Grill seasoned chicken breast. Serve with baked sweet potato and greens.', 35,
+            ['Chicken breast' => 6, 'Sweet potato' => 1, 'Mixed greens' => 2, 'Olive oil' => 1, 'Fresh rosemary' => 1]);
+
+        $this->createRecipe($diet, 'Shrimp and Vegetable Skillet', 'dinner',
+            'Sauté shrimp with zucchini, tomatoes, and garlic. Serve over quinoa.', 20,
+            ['Shrimp' => 6, 'Zucchini' => 1, 'Cherry tomatoes' => 0.5, 'Garlic' => 2, 'Quinoa' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Lean Beef Stir-Fry', 'dinner',
+            'Stir-fry lean beef with broccoli and bell peppers in ginger sauce.', 25,
+            ['Ground beef' => 6, 'Broccoli' => 0.5, 'Bell pepper' => 1, 'Soy sauce' => 1, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Baked Chicken Parmesan', 'dinner',
+            'Bake breaded chicken with marinara and a light sprinkle of cheese.', 35,
+            ['Chicken breast' => 6, 'Diced tomatoes (canned)' => 1, 'Mozzarella cheese' => 0.25, 'Parmesan cheese' => 1, 'Whole wheat pasta' => 1, 'Italian seasoning' => 0.5]);
+
+        $this->createRecipe($diet, 'Pork Tenderloin with Apples', 'dinner',
+            'Roast pork tenderloin with apples and rosemary. Serve with roasted vegetables.', 40,
+            ['Pork tenderloin' => 6, 'Onion' => 0.5, 'Fresh rosemary' => 1, 'Olive oil' => 1, 'Sweet potato' => 1]);
+
+        $this->createRecipe($diet, 'Mediterranean Chicken', 'dinner',
+            'Bake chicken with olives, tomatoes, and artichokes. Serve with whole grain couscous.', 35,
+            ['Chicken breast' => 6, 'Olives' => 0.25, 'Cherry tomatoes' => 0.5, 'Garlic' => 2, 'Farro' => 1, 'Olive oil' => 1]);
     }
 
     private function seedGlutenFree(): void
@@ -301,6 +793,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Beef and Broccoli', 'dinner',
             'Stir-fry sliced beef with broccoli in gluten-free soy sauce. Serve over rice.', 25,
             ['Ground beef' => 6, 'Broccoli' => 0.5, 'Coconut aminos' => 2, 'Brown rice' => 1, 'Garlic' => 2, 'Ginger' => 0.5]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Coconut Flour Pancakes', 'breakfast',
+            'Make fluffy pancakes with coconut flour, eggs, and vanilla. Serve with maple syrup.', 20,
+            ['Eggs' => 3, 'Coconut milk' => 0.5, 'Banana' => 0.5, 'Maple syrup' => 1]);
+
+        $this->createRecipe($diet, 'Smoked Salmon and Eggs', 'breakfast',
+            'Serve scrambled eggs alongside smoked salmon, capers, and fresh dill.', 15,
+            ['Salmon fillet' => 4, 'Eggs' => 2, 'Capers' => 1, 'Fresh dill' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Tropical Fruit Bowl', 'breakfast',
+            'Combine fresh mango, pineapple, and coconut. Top with toasted coconut flakes.', 10,
+            ['Banana' => 0.5, 'Coconut milk' => 0.25, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Hash Brown Egg Nests', 'breakfast',
+            'Bake shredded potato nests and crack eggs into the center.', 30,
+            ['Sweet potato' => 1, 'Eggs' => 2, 'Olive oil' => 1, 'Sea salt' => 0.25, 'Fresh parsley' => 1]);
+
+        $this->createRecipe($diet, 'Almond Butter Banana Bites', 'breakfast',
+            'Top banana slices with almond butter and a sprinkle of cinnamon.', 5,
+            ['Banana' => 1, 'Almond butter' => 2, 'Cinnamon' => 0.5, 'Honey' => 0.5]);
+
+        $this->createRecipe($diet, 'Veggie and Cheese Frittata', 'breakfast',
+            'Bake eggs with zucchini, peppers, and cheese until golden.', 25,
+            ['Eggs' => 3, 'Zucchini' => 0.5, 'Bell pepper' => 0.5, 'Cheddar cheese' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Rice Cake with Avocado', 'breakfast',
+            'Top rice cakes with mashed avocado, everything seasoning, and a fried egg.', 10,
+            ['Avocado' => 0.5, 'Eggs' => 1, 'Sea salt' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Coconut Yogurt Parfait', 'breakfast',
+            'Layer coconut yogurt with fresh berries and gluten-free granola.', 10,
+            ['Coconut milk' => 1, 'Blueberries' => 0.5, 'Strawberries' => 0.5, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Breakfast Sausage Patties', 'breakfast',
+            'Make homemade sausage patties with ground pork and herbs. Serve with eggs.', 20,
+            ['Pork tenderloin' => 4, 'Eggs' => 2, 'Fresh thyme' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Mango Chia Pudding', 'breakfast',
+            'Blend mango into chia pudding base. Top with fresh mango cubes.', 5,
+            ['Chia seeds' => 2, 'Coconut milk' => 1, 'Honey' => 1]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'Thai Chicken Lettuce Cups', 'lunch',
+            'Fill lettuce cups with seasoned ground chicken, herbs, and peanut sauce.', 20,
+            ['Chicken breast' => 6, 'Romaine lettuce' => 0.5, 'Fresh cilantro' => 1, 'Fresh mint' => 1, 'Coconut aminos' => 1, 'Lime' => 0.5]);
+
+        $this->createRecipe($diet, 'Salmon Avocado Bowl', 'lunch',
+            'Top rice with grilled salmon, avocado, cucumber, and sesame seeds.', 25,
+            ['Salmon fillet' => 6, 'Brown rice' => 1, 'Avocado' => 0.5, 'Cucumber' => 0.5, 'Sesame seeds' => 1, 'Coconut aminos' => 1]);
+
+        $this->createRecipe($diet, 'Chicken Vegetable Soup', 'lunch',
+            'Simmer chicken with carrots, celery, and herbs in gluten-free broth.', 40,
+            ['Chicken breast' => 4, 'Carrots' => 2, 'Celery' => 2, 'Onion' => 0.5, 'Chicken broth' => 2, 'Fresh thyme' => 1]);
+
+        $this->createRecipe($diet, 'Taco Salad Bowl', 'lunch',
+            'Top lettuce with seasoned beef, tomatoes, cheese, and gluten-free salsa.', 20,
+            ['Ground beef' => 6, 'Romaine lettuce' => 0.5, 'Tomatoes' => 1, 'Cheddar cheese' => 0.25, 'Sour cream' => 2, 'Fresh cilantro' => 1]);
+
+        $this->createRecipe($diet, 'Shrimp and Mango Salad', 'lunch',
+            'Toss grilled shrimp with mixed greens, mango, and lime dressing.', 20,
+            ['Shrimp' => 6, 'Mixed greens' => 3, 'Avocado' => 0.5, 'Lime' => 0.5, 'Fresh cilantro' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Cauliflower Fried Rice', 'lunch',
+            'Stir-fry cauliflower rice with vegetables, eggs, and coconut aminos.', 20,
+            ['Cauliflower' => 0.5, 'Eggs' => 2, 'Carrots' => 1, 'Coconut aminos' => 1, 'Ginger' => 0.5, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Greek Chicken Bowl', 'lunch',
+            'Top rice with grilled chicken, cucumber, tomatoes, and tzatziki.', 25,
+            ['Chicken breast' => 6, 'Brown rice' => 1, 'Cucumber' => 0.5, 'Cherry tomatoes' => 0.5, 'Greek yogurt' => 0.25, 'Fresh dill' => 1]);
+
+        $this->createRecipe($diet, 'Turkey Lettuce Wraps', 'lunch',
+            'Fill lettuce cups with seasoned ground turkey and fresh vegetables.', 20,
+            ['Ground turkey' => 6, 'Romaine lettuce' => 0.5, 'Carrots' => 1, 'Coconut aminos' => 1, 'Fresh cilantro' => 1, 'Lime' => 0.5]);
+
+        $this->createRecipe($diet, 'Zucchini Noodle Primavera', 'lunch',
+            'Toss zucchini noodles with sautéed vegetables and olive oil.', 20,
+            ['Zucchini' => 2, 'Bell pepper' => 1, 'Cherry tomatoes' => 0.5, 'Garlic' => 2, 'Olive oil' => 2, 'Fresh basil' => 1]);
+
+        $this->createRecipe($diet, 'Chicken and Rice Soup', 'lunch',
+            'Make comforting soup with chicken, rice, and vegetables.', 40,
+            ['Chicken breast' => 4, 'Brown rice' => 0.5, 'Carrots' => 2, 'Celery' => 2, 'Chicken broth' => 2, 'Fresh parsley' => 1]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Herb Roasted Chicken', 'dinner',
+            'Roast chicken with fresh herbs and garlic. Serve with roasted vegetables.', 50,
+            ['Chicken breast' => 8, 'Fresh rosemary' => 1, 'Fresh thyme' => 1, 'Garlic' => 4, 'Carrots' => 2, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Grilled Steak with Chimichurri', 'dinner',
+            'Grill steak and top with fresh herb chimichurri sauce. Serve with sweet potato.', 30,
+            ['Ground beef' => 8, 'Fresh parsley' => 2, 'Fresh cilantro' => 1, 'Garlic' => 3, 'Olive oil' => 2, 'Sweet potato' => 1]);
+
+        $this->createRecipe($diet, 'Coconut Curry Shrimp', 'dinner',
+            'Simmer shrimp in coconut curry sauce with vegetables. Serve over rice.', 25,
+            ['Shrimp' => 8, 'Coconut milk' => 1, 'Bell pepper' => 1, 'Turmeric' => 0.5, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Stuffed Acorn Squash', 'dinner',
+            'Fill roasted squash halves with quinoa, cranberries, and pecans.', 45,
+            ['Quinoa' => 1, 'Walnuts' => 0.25, 'Fresh thyme' => 1, 'Olive oil' => 1, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Teriyaki Salmon', 'dinner',
+            'Glaze salmon with gluten-free teriyaki. Serve with steamed broccoli and rice.', 25,
+            ['Salmon fillet' => 6, 'Coconut aminos' => 2, 'Honey' => 1, 'Ginger' => 0.5, 'Broccoli' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Mediterranean Lamb Chops', 'dinner',
+            'Grill lamb chops with herbs and serve with roasted vegetables.', 30,
+            ['Ground beef' => 8, 'Fresh rosemary' => 1, 'Garlic' => 3, 'Zucchini' => 1, 'Cherry tomatoes' => 0.5, 'Olive oil' => 2]);
+
+        $this->createRecipe($diet, 'Pork Stir-Fry', 'dinner',
+            'Stir-fry sliced pork with vegetables in gluten-free sauce.', 25,
+            ['Pork tenderloin' => 6, 'Broccoli' => 0.5, 'Bell pepper' => 1, 'Coconut aminos' => 1, 'Ginger' => 0.5, 'Brown rice' => 1]);
+
+        $this->createRecipe($diet, 'Balsamic Glazed Chicken', 'dinner',
+            'Pan-sear chicken and glaze with balsamic reduction. Serve with quinoa.', 30,
+            ['Chicken breast' => 6, 'Balsamic vinegar' => 2, 'Honey' => 1, 'Quinoa' => 1, 'Asparagus' => 0.5, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Fish Tacos', 'dinner',
+            'Grill fish and serve in corn tortillas with cabbage slaw and lime crema.', 25,
+            ['Cod' => 6, 'Lime' => 0.5, 'Sour cream' => 2, 'Fresh cilantro' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Turkey and Sweet Potato Skillet', 'dinner',
+            'Sauté ground turkey with sweet potatoes, kale, and spices.', 25,
+            ['Ground turkey' => 6, 'Sweet potato' => 1, 'Kale' => 0.5, 'Garlic' => 2, 'Cumin' => 0.5, 'Olive oil' => 1]);
     }
 
     private function seedLectinFree(): void
@@ -357,6 +972,129 @@ class RecipeSeeder extends Seeder
         $this->createRecipe($diet, 'Lamb Chops with Mint', 'dinner',
             'Grill lamb chops with olive oil and mint. Serve with roasted cauliflower.', 25,
             ['Pork tenderloin' => 6, 'Cauliflower' => 0.5, 'Fresh mint' => 2, 'Olive oil' => 2, 'Garlic' => 2, 'Sea salt' => 0.5]);
+
+        // Additional Breakfasts
+        $this->createRecipe($diet, 'Avocado and Egg Bowl', 'breakfast',
+            'Top mashed avocado with poached eggs and a sprinkle of sea salt.', 15,
+            ['Avocado' => 1, 'Eggs' => 2, 'Sea salt' => 0.25, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Bacon and Spinach Scramble', 'breakfast',
+            'Scramble eggs with crispy bacon and sautéed spinach.', 15,
+            ['Eggs' => 3, 'Bacon' => 3, 'Spinach' => 2, 'Butter' => 1]);
+
+        $this->createRecipe($diet, 'Coconut Chia Bowl', 'breakfast',
+            'Mix chia seeds with coconut milk overnight. Top with berries.', 5,
+            ['Chia seeds' => 2, 'Coconut milk' => 1, 'Blueberries' => 0.5, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Green Smoothie', 'breakfast',
+            'Blend spinach, avocado, and coconut milk for a creamy green smoothie.', 5,
+            ['Spinach' => 2, 'Avocado' => 0.5, 'Coconut milk' => 1, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Sweet Potato Breakfast Hash', 'breakfast',
+            'Sauté diced sweet potato with onions. Top with fried eggs.', 25,
+            ['Sweet potato' => 1, 'Onion' => 0.5, 'Eggs' => 2, 'Olive oil' => 1, 'Fresh rosemary' => 1]);
+
+        $this->createRecipe($diet, 'Mushroom and Herb Eggs', 'breakfast',
+            'Scramble eggs with sautéed mushrooms and fresh herbs.', 15,
+            ['Eggs' => 3, 'Mushrooms' => 4, 'Fresh thyme' => 1, 'Butter' => 1, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Prosciutto Wrapped Melon', 'breakfast',
+            'Wrap melon slices in prosciutto. Serve with a side of greens.', 10,
+            ['Bacon' => 3, 'Mixed greens' => 2, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Collagen Smoothie', 'breakfast',
+            'Blend coconut milk with berries and a handful of spinach.', 5,
+            ['Coconut milk' => 1, 'Blueberries' => 0.5, 'Spinach' => 1, 'Honey' => 1]);
+
+        $this->createRecipe($diet, 'Sautéed Greens with Eggs', 'breakfast',
+            'Sauté kale and spinach in olive oil. Top with fried eggs.', 15,
+            ['Kale' => 0.5, 'Spinach' => 2, 'Eggs' => 2, 'Olive oil' => 1, 'Garlic' => 1]);
+
+        $this->createRecipe($diet, 'Coconut Pancakes', 'breakfast',
+            'Make grain-free pancakes with coconut flour and eggs.', 20,
+            ['Eggs' => 3, 'Coconut milk' => 0.5, 'Honey' => 1, 'Butter' => 1]);
+
+        // Additional Lunches
+        $this->createRecipe($diet, 'Grilled Chicken Salad', 'lunch',
+            'Top mixed greens with grilled chicken, avocado, and olive oil dressing.', 20,
+            ['Chicken breast' => 6, 'Mixed greens' => 3, 'Avocado' => 0.5, 'Cucumber' => 0.5, 'Olive oil' => 2, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Smoked Salmon Salad', 'lunch',
+            'Arrange smoked salmon over greens with capers and olive oil.', 10,
+            ['Salmon fillet' => 6, 'Mixed greens' => 3, 'Capers' => 1, 'Fresh dill' => 1, 'Olive oil' => 2, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Shrimp Ceviche', 'lunch',
+            'Marinate shrimp in citrus juice with avocado and herbs.', 25,
+            ['Shrimp' => 6, 'Avocado' => 0.5, 'Lime' => 1, 'Lemon' => 0.5, 'Fresh cilantro' => 1, 'Olive oil' => 1]);
+
+        $this->createRecipe($diet, 'Roasted Vegetable Plate', 'lunch',
+            'Roast cauliflower, broccoli, and carrots. Drizzle with olive oil.', 35,
+            ['Cauliflower' => 0.25, 'Broccoli' => 0.25, 'Carrots' => 2, 'Olive oil' => 2, 'Fresh rosemary' => 1, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Tuna and Avocado Boats', 'lunch',
+            'Fill avocado halves with seasoned tuna salad.', 15,
+            ['Tuna' => 5, 'Avocado' => 1, 'Olive oil' => 1, 'Lemon' => 0.5, 'Fresh parsley' => 1]);
+
+        $this->createRecipe($diet, 'Herb Chicken Lettuce Wraps', 'lunch',
+            'Fill lettuce cups with herb-seasoned shredded chicken.', 20,
+            ['Chicken breast' => 6, 'Romaine lettuce' => 0.5, 'Fresh basil' => 1, 'Fresh mint' => 1, 'Olive oil' => 1, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Mashed Cauliflower Bowl', 'lunch',
+            'Top creamy mashed cauliflower with grilled chicken and herbs.', 25,
+            ['Cauliflower' => 0.5, 'Chicken breast' => 4, 'Butter' => 2, 'Garlic' => 2, 'Fresh thyme' => 1]);
+
+        $this->createRecipe($diet, 'Steak Salad', 'lunch',
+            'Top mixed greens with sliced grilled steak and olive oil dressing.', 25,
+            ['Ground beef' => 6, 'Mixed greens' => 3, 'Avocado' => 0.5, 'Olive oil' => 2, 'Balsamic vinegar' => 1]);
+
+        $this->createRecipe($diet, 'Coconut Chicken Soup', 'lunch',
+            'Simmer chicken in coconut milk with ginger and greens.', 35,
+            ['Chicken breast' => 4, 'Coconut milk' => 1, 'Ginger' => 0.5, 'Kale' => 0.5, 'Garlic' => 2, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Crab and Avocado Salad', 'lunch',
+            'Toss crab meat with avocado, lime, and fresh herbs over greens.', 15,
+            ['Shrimp' => 6, 'Avocado' => 0.5, 'Mixed greens' => 2, 'Lime' => 0.5, 'Fresh cilantro' => 1, 'Olive oil' => 1]);
+
+        // Additional Dinners
+        $this->createRecipe($diet, 'Pan-Seared Scallops', 'dinner',
+            'Sear scallops in butter until golden. Serve with sautéed greens.', 20,
+            ['Shrimp' => 8, 'Butter' => 3, 'Kale' => 0.5, 'Garlic' => 2, 'Lemon' => 0.5]);
+
+        $this->createRecipe($diet, 'Herb-Crusted Rack of Lamb', 'dinner',
+            'Roast lamb with fresh herbs and garlic. Serve with roasted vegetables.', 45,
+            ['Ground beef' => 8, 'Fresh rosemary' => 1, 'Fresh thyme' => 1, 'Garlic' => 3, 'Olive oil' => 2, 'Asparagus' => 0.5]);
+
+        $this->createRecipe($diet, 'Salmon with Asparagus', 'dinner',
+            'Bake salmon and asparagus on the same sheet pan with olive oil and herbs.', 25,
+            ['Salmon fillet' => 6, 'Asparagus' => 1, 'Olive oil' => 2, 'Lemon' => 0.5, 'Fresh dill' => 1, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Grilled Chicken with Pesto', 'dinner',
+            'Grill chicken and top with fresh basil pesto. Serve with roasted vegetables.', 30,
+            ['Chicken breast' => 6, 'Fresh basil' => 2, 'Olive oil' => 3, 'Garlic' => 2, 'Broccoli' => 0.5]);
+
+        $this->createRecipe($diet, 'Pork Tenderloin with Herbs', 'dinner',
+            'Roast pork tenderloin with rosemary and thyme. Serve with cauliflower mash.', 40,
+            ['Pork tenderloin' => 8, 'Fresh rosemary' => 1, 'Fresh thyme' => 1, 'Cauliflower' => 0.5, 'Butter' => 2, 'Garlic' => 2]);
+
+        $this->createRecipe($diet, 'Duck Breast with Greens', 'dinner',
+            'Pan-sear duck breast and serve over sautéed kale and spinach.', 30,
+            ['Chicken breast' => 6, 'Kale' => 0.5, 'Spinach' => 2, 'Olive oil' => 1, 'Sea salt' => 0.25]);
+
+        $this->createRecipe($diet, 'Shrimp and Zucchini Noodles', 'dinner',
+            'Sauté shrimp with garlic and toss with zucchini noodles.', 20,
+            ['Shrimp' => 8, 'Zucchini' => 2, 'Garlic' => 3, 'Olive oil' => 2, 'Lemon' => 0.5, 'Fresh parsley' => 1]);
+
+        $this->createRecipe($diet, 'Braised Short Ribs', 'dinner',
+            'Braise beef short ribs with herbs until tender. Serve with mashed cauliflower.', 180,
+            ['Ground beef' => 8, 'Chicken broth' => 1, 'Fresh rosemary' => 1, 'Fresh thyme' => 1, 'Cauliflower' => 0.5, 'Onion' => 0.5]);
+
+        $this->createRecipe($diet, 'Baked Halibut with Lemon', 'dinner',
+            'Bake halibut with lemon, capers, and fresh herbs.', 25,
+            ['Cod' => 6, 'Lemon' => 1, 'Capers' => 1, 'Fresh dill' => 1, 'Olive oil' => 2, 'Asparagus' => 0.5]);
+
+        $this->createRecipe($diet, 'Grilled Ribeye with Butter', 'dinner',
+            'Grill ribeye steak and top with herb compound butter.', 25,
+            ['Ground beef' => 8, 'Butter' => 3, 'Fresh rosemary' => 1, 'Garlic' => 2, 'Sea salt' => 0.5, 'Broccoli' => 0.5]);
     }
 
     private function createRecipe(Diet $diet, string $name, string $mealType, string $instructions, int $prepTime, array $ingredients): void
