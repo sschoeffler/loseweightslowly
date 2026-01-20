@@ -40,6 +40,46 @@ class DietSeeder extends Seeder
                 'slug' => 'lectin-free',
                 'description' => 'Avoids foods high in lectins like beans, grains, and nightshades. Emphasizes pasture-raised meats, wild-caught fish, and leafy greens.',
             ],
+            [
+                'name' => 'Kosher',
+                'slug' => 'kosher',
+                'description' => 'Follows Jewish dietary laws (kashrut). No pork or shellfish, meat and dairy separate, only kosher-certified ingredients.',
+            ],
+            [
+                'name' => 'Halal',
+                'slug' => 'halal',
+                'description' => 'Follows Islamic dietary guidelines. No pork or alcohol, meat must be halal-certified, emphasizes wholesome ingredients.',
+            ],
+            [
+                'name' => 'Vegan',
+                'slug' => 'vegan',
+                'description' => 'Strictly plant-based with no animal products including dairy, eggs, or honey. Rich in vegetables, fruits, grains, legumes, nuts, and seeds.',
+            ],
+            [
+                'name' => 'Paleo',
+                'slug' => 'paleo',
+                'description' => 'Based on foods similar to those eaten during the Paleolithic era. No grains, legumes, dairy, or processed foods. Focus on meat, fish, vegetables, fruits, nuts.',
+            ],
+            [
+                'name' => 'Whole30',
+                'slug' => 'whole30',
+                'description' => 'Elimination diet avoiding sugar, alcohol, grains, legumes, soy, and dairy for 30 days. Focus on whole, unprocessed foods.',
+            ],
+            [
+                'name' => 'Low-FODMAP',
+                'slug' => 'low-fodmap',
+                'description' => 'Reduces fermentable carbs that can cause digestive issues. Avoids certain fruits, vegetables, grains, and dairy. Good for IBS management.',
+            ],
+            [
+                'name' => 'Diabetic-Friendly',
+                'slug' => 'diabetic-friendly',
+                'description' => 'Low glycemic index foods to help manage blood sugar levels. Emphasizes lean proteins, non-starchy vegetables, and complex carbohydrates.',
+            ],
+            [
+                'name' => 'Pescatarian',
+                'slug' => 'pescatarian',
+                'description' => 'Vegetarian diet that includes fish and seafood. No meat or poultry, but includes dairy, eggs, and all plant-based foods.',
+            ],
         ];
 
         foreach ($diets as $diet) {
