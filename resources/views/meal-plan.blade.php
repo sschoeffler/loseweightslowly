@@ -31,7 +31,31 @@
                             <div class="border rounded-lg p-4">
                                 <h3 class="text-sm font-semibold text-indigo-600 uppercase tracking-wide mb-2">{{ $mealLabel }}</h3>
                                 @if($meals[$mealKey])
-                                <h4 class="text-lg font-semibold text-gray-800 mb-2">{{ $meals[$mealKey]->name }}</h4>
+                                <div class="flex items-start justify-between gap-2 mb-2">
+                                    <h4 class="text-lg font-semibold text-gray-800">{{ $meals[$mealKey]->name }}</h4>
+                                    <div class="flex gap-1 shrink-0">
+                                        <button type="button"
+                                                class="preference-btn like-btn p-1.5 rounded hover:bg-green-100 transition-colors"
+                                                data-recipe-id="{{ $meals[$mealKey]->id }}"
+                                                data-preference="liked"
+                                                title="Like this recipe">
+                                            <svg class="w-5 h-5 heart-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                            </svg>
+                                        </button>
+                                        <button type="button"
+                                                class="preference-btn dislike-btn p-1.5 rounded hover:bg-red-100 transition-colors"
+                                                data-recipe-id="{{ $meals[$mealKey]->id }}"
+                                                data-preference="disliked"
+                                                title="Dislike this recipe">
+                                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
                                 @if($meals[$mealKey]->prep_time)
                                 <p class="text-sm text-gray-500 mb-3">Prep time: {{ $meals[$mealKey]->prep_time }} min</p>
                                 @endif
@@ -76,4 +100,76 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+            // Load existing preferences
+            fetch('{{ route("recipe.preferences") }}')
+                .then(response => response.json())
+                .then(preferences => {
+                    Object.entries(preferences).forEach(([recipeId, preference]) => {
+                        updateButtonState(recipeId, preference);
+                    });
+                });
+
+            // Handle preference button clicks
+            document.querySelectorAll('.preference-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const recipeId = this.dataset.recipeId;
+                    const preference = this.dataset.preference;
+
+                    fetch('{{ route("recipe.preference") }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify({
+                            recipe_id: recipeId,
+                            preference: preference
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'removed') {
+                            clearButtonState(recipeId);
+                        } else {
+                            updateButtonState(recipeId, data.preference);
+                        }
+                    });
+                });
+            });
+
+            function updateButtonState(recipeId, preference) {
+                const likeBtn = document.querySelector(`.like-btn[data-recipe-id="${recipeId}"]`);
+                const dislikeBtn = document.querySelector(`.dislike-btn[data-recipe-id="${recipeId}"]`);
+
+                if (likeBtn && dislikeBtn) {
+                    clearButtonState(recipeId);
+
+                    if (preference === 'liked') {
+                        likeBtn.classList.add('bg-green-100', 'text-green-600');
+                        likeBtn.querySelector('svg').setAttribute('fill', 'currentColor');
+                    } else if (preference === 'disliked') {
+                        dislikeBtn.classList.add('bg-red-100', 'text-red-600');
+                    }
+                }
+            }
+
+            function clearButtonState(recipeId) {
+                const likeBtn = document.querySelector(`.like-btn[data-recipe-id="${recipeId}"]`);
+                const dislikeBtn = document.querySelector(`.dislike-btn[data-recipe-id="${recipeId}"]`);
+
+                if (likeBtn) {
+                    likeBtn.classList.remove('bg-green-100', 'text-green-600');
+                    likeBtn.querySelector('svg').setAttribute('fill', 'none');
+                }
+                if (dislikeBtn) {
+                    dislikeBtn.classList.remove('bg-red-100', 'text-red-600');
+                }
+            }
+        });
+    </script>
 </x-app-layout>
