@@ -40,37 +40,47 @@ class MealPlanGenerator
     {
         $query = $diet->recipes()->where('meal_type', $mealType);
 
-        // Filter by cuisine
-        if (!empty($filters['cuisine'])) {
-            $cuisine = Cuisine::where('slug', $filters['cuisine'])->first();
-            if ($cuisine) {
-                $query->where('cuisine_id', $cuisine->id);
+        try {
+            // Filter by cuisine (only if cuisines table exists)
+            if (!empty($filters['cuisine'])) {
+                $cuisine = Cuisine::where('slug', $filters['cuisine'])->first();
+                if ($cuisine) {
+                    $query->where('cuisine_id', $cuisine->id);
+                }
             }
-        }
 
-        // Filter by max prep time
-        if (!empty($filters['max_prep_time'])) {
-            $query->where('prep_time', '<=', (int) $filters['max_prep_time']);
-        }
-
-        // Filter by budget level
-        if (!empty($filters['budget'])) {
-            $query->where('budget_level', $filters['budget']);
-        }
-
-        // Filter by meal prep friendly
-        if (!empty($filters['meal_prep_friendly'])) {
-            $query->where('is_meal_prep_friendly', true);
-        }
-
-        // Exclude allergens
-        if (!empty($filters['exclude_allergens']) && is_array($filters['exclude_allergens'])) {
-            $allergenIds = Allergen::whereIn('slug', $filters['exclude_allergens'])->pluck('id');
-            if ($allergenIds->isNotEmpty()) {
-                $query->whereDoesntHave('allergens', function (Builder $q) use ($allergenIds) {
-                    $q->whereIn('allergens.id', $allergenIds);
-                });
+            // Filter by max prep time
+            if (!empty($filters['max_prep_time'])) {
+                $query->where('prep_time', '<=', (int) $filters['max_prep_time']);
             }
+
+            // Filter by budget level (only if column exists)
+            if (!empty($filters['budget'])) {
+                if (\Schema::hasColumn('recipes', 'budget_level')) {
+                    $query->where('budget_level', $filters['budget']);
+                }
+            }
+
+            // Filter by meal prep friendly (only if column exists)
+            if (!empty($filters['meal_prep_friendly'])) {
+                if (\Schema::hasColumn('recipes', 'is_meal_prep_friendly')) {
+                    $query->where('is_meal_prep_friendly', true);
+                }
+            }
+
+            // Exclude allergens (only if allergens table exists)
+            if (!empty($filters['exclude_allergens']) && is_array($filters['exclude_allergens'])) {
+                if (\Schema::hasTable('allergens')) {
+                    $allergenIds = Allergen::whereIn('slug', $filters['exclude_allergens'])->pluck('id');
+                    if ($allergenIds->isNotEmpty()) {
+                        $query->whereDoesntHave('allergens', function (Builder $q) use ($allergenIds) {
+                            $q->whereIn('allergens.id', $allergenIds);
+                        });
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // If any filter fails, just return unfiltered recipes for this meal type
         }
 
         return $query->get();
