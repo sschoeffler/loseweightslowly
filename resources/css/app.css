@@ -1,3 +1,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Print styles */
+@media print {
+    /* Hide navigation, buttons, and chat widget when printing */
+    nav,
+    .chat-widget,
+    .no-print,
+    button:not(.print-include),
+    a[class*="bg-indigo"],
+    a[class*="bg-gray-200"],
+    a[class*="bg-gray-600"],
+    .preference-btn,
+    details summary {
+        display: none !important;
+    }
+
+    /* Remove background colors and shadows */
+    body {
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .bg-gray-100 {
+        background: white !important;
+    }
+
+    .shadow-sm,
+    .shadow-lg {
+        box-shadow: none !important;
+    }
+
+    /* Expand all details sections */
+    details {
+        display: block !important;
+    }
+
+    details > div {
+        display: block !important;
+    }
+
+    /* Adjust page margins */
+    @page {
+        margin: 0.5in;
+    }
+
+    /* Ensure content doesn't break awkwardly */
+    .meal-card,
+    .bg-white {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Make grid single column for print */
+    .md\:grid-cols-3 {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    /* Adjust header for print */
+    header {
+        border-bottom: 2px solid #4f46e5;
+        margin-bottom: 1rem;
+    }
+
+    /* Make text darker for better print */
+    .text-gray-600,
+    .text-gray-500 {
+        color: #374151 !important;
+    }
+
+    /* Show print-specific header */
+    .print-header {
+        display: block !important;
+    }
+
+    /* Checkboxes in shopping list */
+    input[type="checkbox"] {
+        border: 1px solid #000 !important;
+        width: 16px !important;
+        height: 16px !important;
+    }
+}

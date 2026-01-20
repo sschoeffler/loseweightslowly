@@ -5,12 +5,12 @@
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Shopping List</h2>
                 <p class="text-gray-600 text-sm">{{ $diet->name }} diet for {{ $servings }} {{ $servings === 1 ? 'person' : 'people' }} (7 days)</p>
             </div>
-            <div class="flex gap-3">
-                <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
-                    Print List
+            <div class="flex gap-3 no-print">
+                <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                    Print / PDF
                 </button>
-                <a href="{{ route('meal-plan', ['diet' => $diet->slug, 'servings' => $servings]) }}"
-                   class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                <a href="{{ route('meal-plan', array_merge(['diet' => $diet->slug, 'servings' => $servings], request()->query())) }}"
+                   class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
                     View Meal Plan
                 </a>
                 <a href="{{ route('home') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
@@ -45,7 +45,7 @@
                 @endforeach
             </div>
 
-            <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+            <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-lg p-6 no-print">
                 <h2 class="text-lg font-semibold text-yellow-800 mb-2">Shopping Tips</h2>
                 <ul class="text-yellow-700 space-y-1">
                     <li>Check your pantry first - you may already have some herbs and spices.</li>
@@ -55,8 +55,8 @@
                 </ul>
             </div>
 
-            <div class="mt-8 text-center">
-                <a href="{{ route('meal-plan', ['diet' => $diet->slug, 'servings' => $servings]) }}"
+            <div class="mt-8 text-center no-print">
+                <a href="{{ route('meal-plan', array_merge(['diet' => $diet->slug, 'servings' => $servings], request()->query())) }}"
                    class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
                     Back to Meal Plan
                 </a>

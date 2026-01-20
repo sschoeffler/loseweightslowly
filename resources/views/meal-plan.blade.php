@@ -6,6 +6,9 @@
                 <p class="text-gray-600 text-sm">7-day plan for {{ $mealPlan['servings'] }} {{ $mealPlan['servings'] === 1 ? 'person' : 'people' }}</p>
             </div>
             <div class="flex gap-3">
+                <button onclick="printMealPlan()" class="no-print bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                    Print / PDF
+                </button>
                 <a href="{{ route('shopping-list', array_merge(['diet' => $mealPlan['diet']->slug, 'servings' => $mealPlan['servings']], request()->query())) }}"
                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
                     View Shopping List
@@ -273,5 +276,29 @@
                 }
             }
         });
+
+        // Print function - expands all details before printing
+        function printMealPlan() {
+            // Open all details elements
+            const details = document.querySelectorAll('details');
+            const previousStates = [];
+
+            details.forEach((detail, index) => {
+                previousStates[index] = detail.open;
+                detail.open = true;
+            });
+
+            // Small delay to allow DOM to update
+            setTimeout(() => {
+                window.print();
+
+                // Restore previous states after print dialog closes
+                setTimeout(() => {
+                    details.forEach((detail, index) => {
+                        detail.open = previousStates[index];
+                    });
+                }, 100);
+            }, 100);
+        }
     </script>
 </x-app-layout>
