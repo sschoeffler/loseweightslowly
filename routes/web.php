@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     // Recipe preference routes
     Route::post('/recipe/preference', [RecipePreferenceController::class, 'toggle'])->name('recipe.preference');
     Route::get('/recipe/preferences', [RecipePreferenceController::class, 'getUserPreferences'])->name('recipe.preferences');
+    Route::post('/recipe/replacement', [RecipePreferenceController::class, 'getReplacement'])->name('recipe.replacement');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
