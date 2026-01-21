@@ -53,7 +53,9 @@ class RecipePreferenceController extends Controller
     public function getReplacement(Request $request)
     {
         $request->validate([
-            'diet_id' => 'required|exists:diets,id',
+            'diet_id' => 'nullable|exists:diets,id',
+            'diet_ids' => 'nullable|array',
+            'diet_ids.*' => 'integer|exists:diets,id',
             'meal_type' => 'required|in:breakfast,lunch,dinner',
             'exclude_ids' => 'array',
             'exclude_ids.*' => 'integer',
@@ -64,6 +66,16 @@ class RecipePreferenceController extends Controller
         $excludeIds = $request->input('exclude_ids', []);
         $servings = $request->input('servings', 2);
 
+        // Get diet IDs - support both single and multiple
+        $dietIds = $request->input('diet_ids', []);
+        if (empty($dietIds) && $request->input('diet_id')) {
+            $dietIds = [$request->input('diet_id')];
+        }
+
+        if (empty($dietIds)) {
+            return response()->json(['error' => 'No diet specified'], 400);
+        }
+
         // Get IDs of disliked recipes for this user
         $dislikedIds = UserRecipePreference::where('user_id', $userId)
             ->where('preference', 'disliked')
@@ -73,8 +85,8 @@ class RecipePreferenceController extends Controller
         // Merge excluded IDs with disliked IDs
         $allExcludedIds = array_unique(array_merge($excludeIds, $dislikedIds));
 
-        // Find a replacement recipe
-        $replacement = Recipe::where('diet_id', $request->diet_id)
+        // Find a replacement recipe from any of the selected diets
+        $replacement = Recipe::whereIn('diet_id', $dietIds)
             ->where('meal_type', $request->meal_type)
             ->whereNotIn('id', $allExcludedIds)
             ->with('ingredients')

@@ -15,9 +15,17 @@ class MealPlanController extends Controller
         private ShoppingListAggregator $shoppingListAggregator
     ) {}
 
-    public function show(Request $request, Diet $diet, int $servings): View
+    public function show(Request $request, string $diets, int $servings): View
     {
         $servings = max(1, min(6, $servings));
+
+        // Parse comma-separated diet slugs and look up Diet models
+        $dietSlugs = explode(',', $diets);
+        $dietModels = Diet::whereIn('slug', $dietSlugs)->get();
+
+        if ($dietModels->isEmpty()) {
+            abort(404, 'No valid diets found');
+        }
 
         $filters = [
             'cuisine' => $request->query('cuisine'),
@@ -27,14 +35,22 @@ class MealPlanController extends Controller
             'exclude_allergens' => $request->query('exclude_allergens', []),
         ];
 
-        $mealPlan = $this->mealPlanGenerator->generate($diet, $servings, $filters);
+        $mealPlan = $this->mealPlanGenerator->generate($dietModels, $servings, $filters);
 
         return view('meal-plan', compact('mealPlan', 'filters'));
     }
 
-    public function shoppingList(Request $request, Diet $diet, int $servings): View
+    public function shoppingList(Request $request, string $diets, int $servings): View
     {
         $servings = max(1, min(6, $servings));
+
+        // Parse comma-separated diet slugs and look up Diet models
+        $dietSlugs = explode(',', $diets);
+        $dietModels = Diet::whereIn('slug', $dietSlugs)->get();
+
+        if ($dietModels->isEmpty()) {
+            abort(404, 'No valid diets found');
+        }
 
         $filters = [
             'cuisine' => $request->query('cuisine'),
@@ -44,11 +60,11 @@ class MealPlanController extends Controller
             'exclude_allergens' => $request->query('exclude_allergens', []),
         ];
 
-        $mealPlan = $this->mealPlanGenerator->generate($diet, $servings, $filters);
+        $mealPlan = $this->mealPlanGenerator->generate($dietModels, $servings, $filters);
         $shoppingList = $this->shoppingListAggregator->aggregate($mealPlan, $servings);
 
         return view('shopping-list', [
-            'diet' => $diet,
+            'diets' => $dietModels,
             'servings' => $servings,
             'shoppingList' => $shoppingList,
             'aggregator' => $this->shoppingListAggregator,

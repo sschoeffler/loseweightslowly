@@ -17,11 +17,12 @@
             <form id="meal-plan-form" action="" method="GET" class="mb-8">
                 <!-- Step 1: Diet Selection -->
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 mb-8">
-                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Step 1: Choose Your Diet</h2>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6">Step 1: Choose Your Diet(s)</h2>
+                    <p class="text-sm text-gray-500 mb-4">Select one or more diets to combine (e.g., Keto + Mediterranean)</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         @foreach($diets as $diet)
                         <label class="diet-card cursor-pointer">
-                            <input type="radio" name="diet" value="{{ $diet->slug }}" class="sr-only peer" required>
+                            <input type="checkbox" name="diets[]" value="{{ $diet->slug }}" class="sr-only peer">
                             <div class="border-2 rounded-lg p-4 transition-all peer-checked:border-indigo-500 peer-checked:bg-indigo-50 hover:border-indigo-300 h-full">
                                 <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ $diet->name }}</h3>
                                 <p class="text-xs text-gray-600">{{ Str::limit($diet->description, 100) }}</p>
@@ -188,15 +189,18 @@
     <script>
     document.getElementById('meal-plan-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const diet = document.querySelector('input[name="diet"]:checked');
-        if (!diet) {
-            alert('Please select a diet type');
+        const selectedDiets = document.querySelectorAll('input[name="diets[]"]:checked');
+        if (selectedDiets.length === 0) {
+            alert('Please select at least one diet type');
             return;
         }
+
+        // Get diet slugs as comma-separated string
+        const dietSlugs = Array.from(selectedDiets).map(el => el.value).join(',');
         const servings = document.getElementById('servings').value;
 
         // Build URL with filters
-        let url = '/meal-plan/' + diet.value + '/' + servings;
+        let url = '/meal-plan/' + dietSlugs + '/' + servings;
 
         // Add query parameters for filters
         const params = new URLSearchParams();

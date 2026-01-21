@@ -2,14 +2,14 @@
     <x-slot name="header">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $mealPlan['diet']->name }} Meal Plan</h2>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ $mealPlan['diets']->pluck('name')->join(' + ') }} Meal Plan</h2>
                 <p class="text-gray-600 text-sm">7-day plan for {{ $mealPlan['servings'] }} {{ $mealPlan['servings'] === 1 ? 'person' : 'people' }}</p>
             </div>
             <div class="flex gap-3">
                 <button onclick="printMealPlan()" class="no-print bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
                     Print / PDF
                 </button>
-                <a href="{{ route('shopping-list', array_merge(['diet' => $mealPlan['diet']->slug, 'servings' => $mealPlan['servings']], request()->query())) }}"
+                <a href="{{ route('shopping-list', array_merge(['diets' => $mealPlan['diets']->pluck('slug')->join(','), 'servings' => $mealPlan['servings']], request()->query())) }}"
                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
                     View Shopping List
                 </a>
@@ -31,7 +31,7 @@
                     <div class="p-6">
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             @foreach(['breakfast' => 'Breakfast', 'lunch' => 'Lunch', 'dinner' => 'Dinner'] as $mealKey => $mealLabel)
-                            <div class="meal-card border rounded-lg p-4" data-meal-type="{{ $mealKey }}" data-diet-id="{{ $mealPlan['diet']->id }}">
+                            <div class="meal-card border rounded-lg p-4" data-meal-type="{{ $mealKey }}" data-diet-ids="{{ $mealPlan['diets']->pluck('id')->join(',') }}">
                                 <h3 class="text-sm font-semibold text-indigo-600 uppercase tracking-wide mb-2">{{ $mealLabel }}</h3>
                                 @if($meals[$mealKey])
                                 <div class="meal-content" data-recipe-id="{{ $meals[$mealKey]->id }}">
@@ -96,7 +96,7 @@
             </div>
 
             <div class="mt-8 text-center">
-                <a href="{{ route('shopping-list', array_merge(['diet' => $mealPlan['diet']->slug, 'servings' => $mealPlan['servings']], request()->query())) }}"
+                <a href="{{ route('shopping-list', array_merge(['diets' => $mealPlan['diets']->pluck('slug')->join(','), 'servings' => $mealPlan['servings']], request()->query())) }}"
                    class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-lg text-xl transition-colors shadow-lg">
                     Get Shopping List
                 </a>
@@ -135,7 +135,7 @@
                     const recipeId = dislikeBtn.dataset.recipeId;
                     const mealCard = dislikeBtn.closest('.meal-card');
                     const mealType = mealCard.dataset.mealType;
-                    const dietId = mealCard.dataset.dietId;
+                    const dietIds = mealCard.dataset.dietIds.split(',').map(id => parseInt(id));
 
                     // Save dislike preference
                     fetch('{{ route("recipe.preference") }}', {
@@ -168,7 +168,7 @@
                             'X-CSRF-TOKEN': csrfToken
                         },
                         body: JSON.stringify({
-                            diet_id: dietId,
+                            diet_ids: dietIds,
                             meal_type: mealType,
                             exclude_ids: allExcluded,
                             servings: servings

@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
 // All main routes require authentication
 Route::middleware('auth')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/meal-plan/{diet}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan');
-    Route::get('/shopping-list/{diet}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list');
+    Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
+    Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
 
     // Chat routes
     Route::post('/chat/send', [ChatController::class, 'send'])->name('chat.send');

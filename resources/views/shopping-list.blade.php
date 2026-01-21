@@ -3,13 +3,13 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Shopping List</h2>
-                <p class="text-gray-600 text-sm">{{ $diet->name }} diet for {{ $servings }} {{ $servings === 1 ? 'person' : 'people' }} (7 days)</p>
+                <p class="text-gray-600 text-sm">{{ $diets->pluck('name')->join(' + ') }} diet for {{ $servings }} {{ $servings === 1 ? 'person' : 'people' }} (7 days)</p>
             </div>
             <div class="flex gap-3 no-print">
-                <button onclick="window.print()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
-                    Print / PDF
+                <button onclick="printShoppingList()" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                    Print Checked Items
                 </button>
-                <a href="{{ route('meal-plan', array_merge(['diet' => $diet->slug, 'servings' => $servings], request()->query())) }}"
+                <a href="{{ route('meal-plan', array_merge(['diets' => $diets->pluck('slug')->join(','), 'servings' => $servings], request()->query())) }}"
                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
                     View Meal Plan
                 </a>
@@ -22,16 +22,27 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Check/Uncheck All Buttons -->
+            <div class="mb-4 flex gap-3 no-print">
+                <button onclick="checkAll()" class="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                    Check All
+                </button>
+                <button onclick="uncheckAll()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg transition-colors text-sm">
+                    Uncheck All
+                </button>
+                <span class="text-sm text-gray-500 self-center ml-2">Only checked items will be printed</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="shopping-list-grid">
                 @foreach($shoppingList as $category => $items)
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="category-card bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="bg-gray-700 text-white px-4 py-3">
                         <h2 class="text-lg font-semibold">{{ $category }}</h2>
                     </div>
                     <ul class="divide-y divide-gray-100">
                         @foreach($items as $item)
-                        <li class="px-4 py-3 flex items-center gap-3">
-                            <input type="checkbox" class="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <li class="shopping-item px-4 py-3 flex items-center gap-3">
+                            <input type="checkbox" checked class="item-checkbox h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                             <span class="flex-1">
                                 <span class="font-medium text-gray-800">{{ $item['name'] }}</span>
                                 <span class="text-gray-500 text-sm ml-2">
@@ -56,11 +67,56 @@
             </div>
 
             <div class="mt-8 text-center no-print">
-                <a href="{{ route('meal-plan', array_merge(['diet' => $diet->slug, 'servings' => $servings], request()->query())) }}"
+                <a href="{{ route('meal-plan', array_merge(['diets' => $diets->pluck('slug')->join(','), 'servings' => $servings], request()->query())) }}"
                    class="inline-block bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
                     Back to Meal Plan
                 </a>
             </div>
         </div>
     </div>
+
+    <script>
+        function checkAll() {
+            document.querySelectorAll('.item-checkbox').forEach(cb => cb.checked = true);
+        }
+
+        function uncheckAll() {
+            document.querySelectorAll('.item-checkbox').forEach(cb => cb.checked = false);
+        }
+
+        function printShoppingList() {
+            // Hide unchecked items before printing
+            const items = document.querySelectorAll('.shopping-item');
+            const hiddenItems = [];
+
+            items.forEach(item => {
+                const checkbox = item.querySelector('.item-checkbox');
+                if (!checkbox.checked) {
+                    item.style.display = 'none';
+                    hiddenItems.push(item);
+                }
+            });
+
+            // Hide empty category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            const hiddenCards = [];
+
+            categoryCards.forEach(card => {
+                const visibleItems = card.querySelectorAll('.shopping-item:not([style*="display: none"])');
+                if (visibleItems.length === 0) {
+                    card.style.display = 'none';
+                    hiddenCards.push(card);
+                }
+            });
+
+            // Print
+            window.print();
+
+            // Restore hidden items after print dialog closes
+            setTimeout(() => {
+                hiddenItems.forEach(item => item.style.display = '');
+                hiddenCards.forEach(card => card.style.display = '');
+            }, 100);
+        }
+    </script>
 </x-app-layout>

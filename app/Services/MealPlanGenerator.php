@@ -11,11 +11,11 @@ use Illuminate\Support\Collection;
 
 class MealPlanGenerator
 {
-    public function generate(Diet $diet, int $servings, array $filters = []): array
+    public function generate(Collection $diets, int $servings, array $filters = []): array
     {
-        $breakfasts = $this->getFilteredRecipes($diet, 'breakfast', $filters);
-        $lunches = $this->getFilteredRecipes($diet, 'lunch', $filters);
-        $dinners = $this->getFilteredRecipes($diet, 'dinner', $filters);
+        $breakfasts = $this->getFilteredRecipes($diets, 'breakfast', $filters);
+        $lunches = $this->getFilteredRecipes($diets, 'lunch', $filters);
+        $dinners = $this->getFilteredRecipes($diets, 'dinner', $filters);
 
         $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         $mealPlan = [];
@@ -29,16 +29,20 @@ class MealPlanGenerator
         }
 
         return [
-            'diet' => $diet,
+            'diets' => $diets,
             'servings' => $servings,
             'days' => $mealPlan,
             'filters' => $filters,
         ];
     }
 
-    private function getFilteredRecipes(Diet $diet, string $mealType, array $filters): Collection
+    private function getFilteredRecipes(Collection $diets, string $mealType, array $filters): Collection
     {
-        $query = $diet->recipes()->where('meal_type', $mealType);
+        // Get diet IDs for querying
+        $dietIds = $diets->pluck('id');
+
+        // Query recipes from ANY of the selected diets
+        $query = Recipe::whereIn('diet_id', $dietIds)->where('meal_type', $mealType);
 
         try {
             // Filter by cuisine (only if cuisines table exists)
