@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diet;
-use Anthropic\Anthropic;
+use Anthropic\Client as AnthropicClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -44,9 +44,9 @@ class ChatController extends Controller
         ];
 
         try {
-            $client = Anthropic::client($apiKey);
+            $client = new AnthropicClient($apiKey);
 
-            $response = $client->messages()->create([
+            $response = $client->messages->create([
                 'model' => 'claude-sonnet-4-20250514',
                 'max_tokens' => 1024,
                 'system' => $systemPrompt,
@@ -69,6 +69,7 @@ class ChatController extends Controller
             ]);
 
         } catch (\Exception $e) {
+            \Log::error('Chat API error: ' . $e->getMessage());
             return response()->json([
                 'error' => 'Failed to get response. Please try again.',
             ], 500);
