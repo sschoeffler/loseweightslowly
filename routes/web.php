@@ -7,12 +7,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipePreferenceController;
 use Illuminate\Support\Facades\Route;
 
-// All main routes require authentication
-Route::middleware('auth')->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
-    Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
+// Public routes — viewable without login
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
+Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
 
+// Authenticated routes — actions that modify data
+Route::middleware('auth')->group(function () {
     // Chat routes
     Route::post('/chat/send', [ChatController::class, 'send'])->name('chat.send');
     Route::post('/chat/clear', [ChatController::class, 'clearHistory'])->name('chat.clear');
