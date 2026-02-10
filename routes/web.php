@@ -4,6 +4,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MealPlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipePreferenceController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
 Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
+Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
 
 // Authenticated routes — actions that modify data
 Route::middleware('auth')->group(function () {

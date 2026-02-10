@@ -9,9 +9,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Recipe extends Model
 {
     protected $fillable = [
-        'diet_id', 'cuisine_id', 'name', 'meal_type', 'instructions', 'prep_time',
+        'diet_id', 'cuisine_id', 'name', 'slug', 'meal_type', 'instructions', 'prep_time',
         'calories', 'protein', 'carbs', 'fat', 'budget_level', 'is_meal_prep_friendly', 'season'
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     protected $casts = [
         'is_meal_prep_friendly' => 'boolean',
