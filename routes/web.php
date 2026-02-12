@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\FastingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MealPlanController;
 use App\Http\Controllers\ProfileController;
@@ -13,6 +14,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
 Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
 Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
+Route::get('/fasting', [FastingController::class, 'index'])->name('fasting.index');
+Route::get('/fasting/timer', [FastingController::class, 'timer'])->name('fasting.timer');
+Route::get('/fasting/{slug}', [FastingController::class, 'plan'])->name('fasting.plan')->where('slug', '[a-z0-9\-]+');
 
 // Authenticated routes — actions that modify data
 Route::middleware('auth')->group(function () {
