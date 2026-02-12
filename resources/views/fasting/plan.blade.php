@@ -1,3 +1,11 @@
+{{-- Tailwind safelist — these dynamic classes must be present for the JIT compiler:
+bg-emerald-50 bg-emerald-100 bg-emerald-200 bg-emerald-500 bg-emerald-600 text-emerald-100 text-emerald-600 text-emerald-700 text-emerald-800 border-emerald-300 border-emerald-400 from-emerald-500 to-emerald-600 hover:border-emerald-400
+bg-blue-50 bg-blue-100 bg-blue-200 bg-blue-500 bg-blue-600 text-blue-100 text-blue-600 text-blue-700 text-blue-800 border-blue-300 border-blue-400 from-blue-500 to-blue-600 hover:border-blue-400
+bg-purple-50 bg-purple-100 bg-purple-200 bg-purple-500 bg-purple-600 text-purple-100 text-purple-600 text-purple-700 text-purple-800 border-purple-300 border-purple-400 from-purple-500 to-purple-600 hover:border-purple-400
+bg-red-50 bg-red-100 bg-red-200 bg-red-500 bg-red-600 text-red-100 text-red-600 text-red-700 text-red-800 border-red-300 border-red-400 from-red-500 to-red-600 hover:border-red-400
+bg-amber-50 bg-amber-100 bg-amber-200 bg-amber-400 bg-amber-500 bg-amber-600 text-amber-100 text-amber-600 text-amber-700 text-amber-800 border-amber-300 border-amber-400 from-amber-500 to-amber-600 hover:border-amber-400
+bg-indigo-50 bg-indigo-100 bg-indigo-200 bg-indigo-500 bg-indigo-600 text-indigo-100 text-indigo-600 text-indigo-700 text-indigo-800 border-indigo-300 border-indigo-400 from-indigo-500 to-indigo-600 hover:border-indigo-400
+--}}
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -26,10 +34,10 @@
                     @if($plan['fasting_hours'] > 0)
                     <div class="text-center bg-gray-50 rounded-xl p-4 min-w-[120px]">
                         <p class="text-3xl font-bold text-{{ $plan['color'] }}-600">{{ $plan['fasting_hours'] }}h</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Fasting</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider">Fasting</p>
                         <div class="border-t border-gray-200 my-2"></div>
                         <p class="text-xl font-bold text-gray-600">{{ $plan['eating_hours'] }}h</p>
-                        <p class="text-xs text-gray-400 uppercase tracking-wider">Eating</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-wider">Eating</p>
                     </div>
                     @endif
                 </div>
@@ -125,7 +133,7 @@
                         @if($key !== $slug)
                         <a href="{{ route('fasting.plan', $key) }}" class="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition border border-transparent hover:border-{{ $other['color'] }}-300">
                             <h3 class="font-semibold text-gray-800 text-sm">{{ $other['name'] }}</h3>
-                            <p class="text-xs text-gray-400 mt-1">{{ $other['difficulty'] }}</p>
+                            <p class="text-xs text-gray-500 mt-1">{{ $other['difficulty'] }}</p>
                         </a>
                         @endif
                     @endforeach

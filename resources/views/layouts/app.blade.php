@@ -35,5 +35,7 @@
 
         <!-- Chat Widget -->
         @include('components.chat-widget')
+
+        @stack('scripts')
     </body>
 </html>
