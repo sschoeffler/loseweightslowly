@@ -24,7 +24,17 @@ Route::get('/fasting', [FastingController::class, 'index'])->name('fasting.index
 Route::get('/fasting/timer', [FastingController::class, 'timer'])->name('fasting.timer');
 Route::get('/fasting/{slug}', [FastingController::class, 'plan'])->name('fasting.plan')->where('slug', '[a-z0-9\-]+');
 Route::get('/blog', function () {
-    return view('blog');
+    $posts = [];
+    try {
+        $response = \Illuminate\Support\Facades\Http::timeout(5)
+            ->get('https://marketbreakthrough.com/api/blog/posts', ['site' => 'loseweightslowly.com']);
+        if ($response->successful()) {
+            $posts = $response->json();
+        }
+    } catch (\Exception $e) {
+        // API unavailable — show empty state
+    }
+    return view('blog', ['posts' => $posts]);
 })->name('blog');
 
 // Authenticated routes — actions that modify data
