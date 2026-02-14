@@ -1,4 +1,37 @@
 <x-app-layout>
+    <x-slot name="title">{{ $recipe->name }} Recipe</x-slot>
+    <x-slot name="metaDescription">{{ $recipe->name }} — a healthy {{ $recipe->diet->name }} {{ $recipe->meal_type }} recipe{{ $recipe->cuisine ? ' with ' . $recipe->cuisine->name . ' flavors' : '' }}.{{ $recipe->calories ? ' ' . $recipe->calories . ' calories per serving.' : '' }}{{ $recipe->prep_time ? ' Ready in ' . $recipe->prep_time . ' minutes.' : '' }}</x-slot>
+    <x-slot name="headExtra">
+        <meta property="og:title" content="{{ $recipe->name }} | Lose Weight Slowly">
+        <meta property="og:description" content="{{ $recipe->name }} — a healthy {{ $recipe->diet->name }} {{ $recipe->meal_type }} recipe.{{ $recipe->calories ? ' ' . $recipe->calories . ' cal.' : '' }}">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="{{ url('/recipe/' . $recipe->slug) }}">
+        <script type="application/ld+json">
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'Recipe',
+            'name' => $recipe->name,
+            'prepTime' => $recipe->prep_time ? 'PT' . $recipe->prep_time . 'M' : null,
+            'recipeCategory' => ucfirst($recipe->meal_type),
+            'recipeCuisine' => $recipe->cuisine?->name,
+            'nutrition' => $recipe->calories ? [
+                '@type' => 'NutritionInformation',
+                'calories' => $recipe->calories . ' calories',
+                'proteinContent' => $recipe->protein ? $recipe->protein . ' g' : null,
+                'carbohydrateContent' => $recipe->carbs ? $recipe->carbs . ' g' : null,
+                'fatContent' => $recipe->fat ? $recipe->fat . ' g' : null,
+            ] : null,
+            'recipeIngredient' => $recipe->ingredients->map(function ($i) {
+                $qty = $i->pivot->quantity;
+                $unit = $i->pivot->unit_override ?? $i->unit;
+                return number_format($qty, $qty == floor($qty) ? 0 : 1) . ' ' . $unit . ' ' . $i->name;
+            })->values()->toArray(),
+            'recipeInstructions' => $recipe->instructions,
+            'url' => url('/recipe/' . $recipe->slug),
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+        </script>
+    </x-slot>
+
     <x-slot name="header">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>

@@ -7,13 +7,16 @@ use App\Http\Controllers\MealPlanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipePreferenceController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes — viewable without login
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/meal-plan/{diets}/{servings}', [MealPlanController::class, 'show'])->name('meal-plan')->where('diets', '[a-z0-9\-,]+');
 Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'shoppingList'])->name('shopping-list')->where('diets', '[a-z0-9\-,]+');
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('/fasting', [FastingController::class, 'index'])->name('fasting.index');
 Route::get('/fasting/timer', [FastingController::class, 'timer'])->name('fasting.timer');
 Route::get('/fasting/{slug}', [FastingController::class, 'plan'])->name('fasting.plan')->where('slug', '[a-z0-9\-]+');

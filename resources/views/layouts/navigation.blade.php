@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Meal Plans') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
+                        {{ __('Recipes') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('fasting.index')" :active="request()->routeIs('fasting.*')">
                         {{ __('Intermittent Fasting') }}
                     </x-nav-link>
@@ -77,6 +80,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Meal Plans') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
+                {{ __('Recipes') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('fasting.index')" :active="request()->routeIs('fasting.*')">
                 {{ __('Intermittent Fasting') }}
