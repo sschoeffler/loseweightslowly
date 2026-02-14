@@ -23,6 +23,12 @@ Route::get('/og-image/default.png', [OpenGraphImageController::class, 'default']
 Route::get('/fasting', [FastingController::class, 'index'])->name('fasting.index');
 Route::get('/fasting/timer', [FastingController::class, 'timer'])->name('fasting.timer');
 Route::get('/fasting/{slug}', [FastingController::class, 'plan'])->name('fasting.plan')->where('slug', '[a-z0-9\-]+');
+
+// Privacy policy
+Route::get('/privacy', function () {
+    return view('privacy');
+})->name('privacy');
+
 Route::get('/blog', function () {
     $posts = [];
     try {
