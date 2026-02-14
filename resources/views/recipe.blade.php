@@ -6,6 +6,11 @@
         <meta property="og:description" content="{{ $recipe->name }} — a healthy {{ $recipe->diet->name }} {{ $recipe->meal_type }} recipe.{{ $recipe->calories ? ' ' . $recipe->calories . ' cal.' : '' }}">
         <meta property="og:type" content="article">
         <meta property="og:url" content="{{ url('/recipe/' . $recipe->slug) }}">
+        <meta property="og:image" content="{{ route('og-image.recipe', $recipe) }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ route('og-image.recipe', $recipe) }}">
         <script type="application/ld+json">
         {!! json_encode([
             '@context' => 'https://schema.org',

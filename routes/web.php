@@ -4,6 +4,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\FastingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MealPlanController;
+use App\Http\Controllers\OpenGraphImageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\RecipePreferenceController;
@@ -17,9 +18,14 @@ Route::get('/shopping-list/{diets}/{servings}', [MealPlanController::class, 'sho
 Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
 Route::get('/recipe/{recipe}', [RecipeController::class, 'show'])->name('recipe.show');
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+Route::get('/og-image/recipe/{recipe}.png', [OpenGraphImageController::class, 'recipe'])->name('og-image.recipe');
+Route::get('/og-image/default.png', [OpenGraphImageController::class, 'default'])->name('og-image.default');
 Route::get('/fasting', [FastingController::class, 'index'])->name('fasting.index');
 Route::get('/fasting/timer', [FastingController::class, 'timer'])->name('fasting.timer');
 Route::get('/fasting/{slug}', [FastingController::class, 'plan'])->name('fasting.plan')->where('slug', '[a-z0-9\-]+');
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
 
 // Authenticated routes — actions that modify data
 Route::middleware('auth')->group(function () {

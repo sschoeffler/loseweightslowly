@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('fasting.index')" :active="request()->routeIs('fasting.*')">
                         {{ __('Intermittent Fasting') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+                        {{ __('Blog') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -86,6 +89,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('fasting.index')" :active="request()->routeIs('fasting.*')">
                 {{ __('Intermittent Fasting') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+                {{ __('Blog') }}
             </x-responsive-nav-link>
         </div>
 

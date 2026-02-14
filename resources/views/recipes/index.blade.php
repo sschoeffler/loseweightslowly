@@ -6,6 +6,11 @@
         <meta property="og:description" content="Browse {{ $recipes->total() }} healthy recipes for weight loss. Filter by diet, cuisine, and meal type.">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ url('/recipes') }}">
+        <meta property="og:image" content="{{ route('og-image.default') }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="{{ route('og-image.default') }}">
     </x-slot>
 
     <x-slot name="header">
