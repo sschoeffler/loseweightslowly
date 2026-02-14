@@ -44,11 +44,11 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="flex gap-2">
-                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 px-5 rounded-lg transition-colors text-sm">
+                    <div class="flex gap-2 pb-px">
+                        <button type="submit" class="h-[42px] bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 rounded-md transition-colors text-sm">
                             Filter
                         </button>
-                        <a href="{{ route('recipes.index') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-5 rounded-lg transition-colors text-sm">
+                        <a href="{{ route('recipes.index') }}" class="h-[42px] inline-flex items-center bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold px-5 rounded-md transition-colors text-sm">
                             Clear
                         </a>
                     </div>
